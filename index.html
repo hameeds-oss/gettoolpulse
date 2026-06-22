@@ -3,7 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ToolPulse — Find the Best AI Tools</title>
+<title>ToolPulse — Honest Guides to the Best AI Tools</title>
+<meta name="description" content="Independent, no-nonsense guides to the best AI tools in 2026. Clear pros and cons, who each tool is for, and the free vs paid options — across writing, image, video, coding and more.">
+<link rel="canonical" href="https://gettoolpulse.com/">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -20,512 +22,240 @@
     --tag-bg: #1e1e2e;
   }
 
-  body {
-    font-family: 'Inter', sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.6;
+  body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+
+  /* DISCLOSURE BAR */
+  .disclosure-bar {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    text-align: center;
+    padding: 8px 16px;
+    font-size: 0.78rem;
+    color: var(--muted);
   }
+  .disclosure-bar a { color: var(--accent); text-decoration: none; }
 
   /* NAV */
   nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 18px 40px;
-    border-bottom: 1px solid var(--border);
-    position: sticky;
-    top: 0;
-    background: rgba(10,10,15,0.92);
-    backdrop-filter: blur(12px);
-    z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px 40px; border-bottom: 1px solid var(--border);
+    position: sticky; top: 0; background: rgba(10,10,15,0.92);
+    backdrop-filter: blur(12px); z-index: 100;
   }
-  .logo {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 1.4rem;
-    font-weight: 700;
-    color: #fff;
-  }
+  .logo { font-family: 'Space Grotesk', sans-serif; font-size: 1.4rem; font-weight: 700; color: #fff; }
   .logo span { color: var(--accent); }
   .nav-links { display: flex; gap: 28px; }
-  .nav-links a {
-    color: var(--muted);
-    text-decoration: none;
-    font-size: 0.9rem;
-    font-weight: 500;
-    transition: color 0.2s;
-  }
+  .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
   .nav-links a:hover { color: var(--text); }
   .nav-cta {
-    background: var(--accent);
-    color: #fff;
-    border: none;
-    padding: 9px 20px;
-    border-radius: 8px;
-    font-size: 0.875rem;
-    font-weight: 600;
-    cursor: pointer;
-    font-family: 'Inter', sans-serif;
-    transition: opacity 0.2s;
+    background: var(--accent); color: #fff; border: none; padding: 9px 20px;
+    border-radius: 8px; font-size: 0.875rem; font-weight: 600; cursor: pointer;
+    font-family: 'Inter', sans-serif; transition: opacity 0.2s; text-decoration: none;
   }
   .nav-cta:hover { opacity: 0.85; }
 
-  /* AD BANNER TOP */
-  .ad-banner {
-    background: linear-gradient(90deg, #1a1a2e, #16213e);
-    border-bottom: 1px solid var(--border);
-    text-align: center;
-    padding: 10px;
-    font-size: 0.8rem;
-    color: var(--muted);
-    letter-spacing: 0.05em;
-  }
-  .ad-banner span {
-    background: var(--border);
-    padding: 2px 8px;
-    border-radius: 4px;
-    font-size: 0.7rem;
-    margin-right: 8px;
-    color: #666;
-  }
-
   /* HERO */
-  .hero {
-    text-align: center;
-    padding: 80px 20px 60px;
-    position: relative;
-    overflow: hidden;
-  }
+  .hero { text-align: center; padding: 80px 20px 56px; position: relative; overflow: hidden; }
   .hero::before {
-    content: '';
-    position: absolute;
-    top: -100px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 600px;
-    height: 400px;
-    background: radial-gradient(ellipse, rgba(124,92,252,0.15) 0%, transparent 70%);
-    pointer-events: none;
+    content: ''; position: absolute; top: -100px; left: 50%; transform: translateX(-50%);
+    width: 600px; height: 400px;
+    background: radial-gradient(ellipse, rgba(124,92,252,0.15) 0%, transparent 70%); pointer-events: none;
   }
   .hero-eyebrow {
-    display: inline-block;
-    border: 1px solid var(--accent);
-    color: var(--accent);
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    padding: 5px 14px;
-    border-radius: 20px;
-    margin-bottom: 24px;
+    display: inline-block; border: 1px solid var(--accent); color: var(--accent);
+    font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+    padding: 5px 14px; border-radius: 20px; margin-bottom: 24px;
   }
   .hero h1 {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: clamp(2.2rem, 5vw, 3.8rem);
-    font-weight: 700;
-    line-height: 1.15;
-    max-width: 720px;
-    margin: 0 auto 20px;
+    font-family: 'Space Grotesk', sans-serif; font-size: clamp(2.2rem, 5vw, 3.8rem);
+    font-weight: 700; line-height: 1.15; max-width: 760px; margin: 0 auto 20px;
   }
   .hero h1 em {
     font-style: normal;
     background: linear-gradient(135deg, var(--accent), var(--accent2));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
   }
-  .hero p {
-    color: var(--muted);
-    font-size: 1.05rem;
-    max-width: 500px;
-    margin: 0 auto 36px;
-  }
+  .hero p { color: var(--muted); font-size: 1.05rem; max-width: 540px; margin: 0 auto 36px; }
 
-  /* SEARCH */
-  .search-wrap {
-    max-width: 560px;
-    margin: 0 auto;
-    position: relative;
-  }
+  .search-wrap { max-width: 560px; margin: 0 auto; position: relative; }
   .search-wrap input {
-    width: 100%;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 16px 56px 16px 20px;
-    font-size: 1rem;
-    color: var(--text);
-    font-family: 'Inter', sans-serif;
-    outline: none;
-    transition: border-color 0.2s;
+    width: 100%; background: var(--surface); border: 1px solid var(--border);
+    border-radius: 12px; padding: 16px 56px 16px 20px; font-size: 1rem; color: var(--text);
+    font-family: 'Inter', sans-serif; outline: none; transition: border-color 0.2s;
   }
   .search-wrap input:focus { border-color: var(--accent); }
   .search-wrap input::placeholder { color: var(--muted); }
-  .search-icon {
-    position: absolute;
-    right: 16px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: var(--muted);
-    font-size: 1.2rem;
-  }
+  .search-icon { position: absolute; right: 16px; top: 50%; transform: translateY(-50%); color: var(--muted); font-size: 1.2rem; }
 
-  /* STATS ROW */
-  .stats {
-    display: flex;
-    justify-content: center;
-    gap: 48px;
-    padding: 32px 20px;
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
+  /* TRUST ROW (honest, non-numeric) */
+  .trust {
+    display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;
+    padding: 22px 20px; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
     background: var(--surface);
   }
-  .stat { text-align: center; }
-  .stat-num {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: #fff;
+  .trust-item {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 0.85rem; color: var(--muted);
+    padding: 6px 14px; border: 1px solid var(--border); border-radius: 24px; background: var(--card);
   }
-  .stat-num span { color: var(--accent); }
-  .stat-label { font-size: 0.8rem; color: var(--muted); margin-top: 2px; }
+  .trust-item .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent2); }
 
-  /* CATEGORIES */
-  .section { padding: 60px 40px; max-width: 1200px; margin: 0 auto; }
-  .section-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 28px;
-  }
-  .section-title {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 1.4rem;
-    font-weight: 600;
-  }
-  .see-all {
-    color: var(--accent);
-    font-size: 0.875rem;
-    font-weight: 500;
-    text-decoration: none;
-    cursor: pointer;
-  }
+  /* SECTIONS */
+  .section { padding: 56px 40px 0; max-width: 1200px; margin: 0 auto; }
+  .section-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; }
+  .section-title { font-family: 'Space Grotesk', sans-serif; font-size: 1.4rem; font-weight: 600; }
+  .section-sub { color: var(--muted); font-size: 0.9rem; margin-top: 4px; }
 
-  .categories {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-    margin-bottom: 48px;
-  }
+  .categories { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 8px; }
   .cat-pill {
-    background: var(--card);
-    border: 1px solid var(--border);
-    color: var(--text);
-    padding: 8px 18px;
-    border-radius: 24px;
-    font-size: 0.85rem;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.2s;
+    background: var(--card); border: 1px solid var(--border); color: var(--text);
+    padding: 8px 18px; border-radius: 24px; font-size: 0.85rem; font-weight: 500;
+    cursor: pointer; transition: all 0.2s;
   }
-  .cat-pill:hover, .cat-pill.active {
-    background: var(--accent);
-    border-color: var(--accent);
-    color: #fff;
-  }
+  .cat-pill:hover, .cat-pill.active { background: var(--accent); border-color: var(--accent); color: #fff; }
 
-  /* TOOLS GRID */
-  .tools-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
+  /* MAIN + SIDEBAR */
+  .main-with-sidebar {
+    display: grid; grid-template-columns: 1fr 300px; gap: 40px;
+    max-width: 1200px; margin: 0 auto; padding: 40px 40px 60px;
   }
+  .tools-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 20px; }
   .tool-card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    padding: 24px;
-    transition: border-color 0.2s, transform 0.2s;
-    cursor: pointer;
-    text-decoration: none;
-    color: inherit;
-    display: block;
-    position: relative;
+    background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 24px;
+    transition: border-color 0.2s, transform 0.2s; cursor: pointer; text-decoration: none;
+    color: inherit; display: block; position: relative;
   }
-  .tool-card:hover {
-    border-color: var(--accent);
-    transform: translateY(-3px);
+  .tool-card:hover { border-color: var(--accent); transform: translateY(-3px); }
+  .tool-card.featured { border-color: var(--accent); background: linear-gradient(135deg, #1a1a24, #1e1830); }
+  .pick-badge {
+    position: absolute; top: 16px; right: 16px; background: var(--accent); color: #fff;
+    font-size: 0.65rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+    padding: 3px 8px; border-radius: 4px;
   }
-  .tool-card.featured {
-    border-color: var(--accent);
-    background: linear-gradient(135deg, #1a1a24, #1e1830);
-  }
-  .featured-badge {
-    position: absolute;
-    top: 16px;
-    right: 16px;
-    background: var(--accent);
-    color: #fff;
-    font-size: 0.65rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    padding: 3px 8px;
-    border-radius: 4px;
-  }
-  .affiliate-badge {
-    position: absolute;
-    top: 16px;
-    right: 16px;
-    background: transparent;
-    border: 1px solid #444;
-    color: #666;
-    font-size: 0.6rem;
-    padding: 2px 6px;
-    border-radius: 4px;
+  .aff-badge {
+    position: absolute; top: 16px; right: 16px; background: transparent; border: 1px solid #444;
+    color: #666; font-size: 0.6rem; padding: 2px 6px; border-radius: 4px;
   }
   .tool-icon {
-    width: 48px;
-    height: 48px;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5rem;
-    margin-bottom: 16px;
+    width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center;
+    justify-content: center; font-size: 1.5rem; margin-bottom: 16px;
   }
-  .tool-name {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 1.05rem;
-    font-weight: 600;
-    margin-bottom: 6px;
-  }
-  .tool-desc {
-    color: var(--muted);
-    font-size: 0.875rem;
-    line-height: 1.5;
-    margin-bottom: 16px;
-  }
-  .tool-meta {
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .tag {
-    background: var(--tag-bg);
-    color: var(--muted);
-    font-size: 0.75rem;
-    padding: 3px 10px;
-    border-radius: 12px;
-    border: 1px solid var(--border);
-  }
+  .tool-name { font-family: 'Space Grotesk', sans-serif; font-size: 1.05rem; font-weight: 600; margin-bottom: 6px; }
+  .tool-desc { color: var(--muted); font-size: 0.875rem; line-height: 1.5; margin-bottom: 16px; }
+  .tool-meta { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; justify-content: space-between; }
+  .tag { background: var(--tag-bg); color: var(--muted); font-size: 0.75rem; padding: 3px 10px; border-radius: 12px; border: 1px solid var(--border); }
   .tag.green { color: var(--accent2); border-color: rgba(0,212,170,0.3); }
-  .rating {
-    color: #f5a623;
-    font-size: 0.8rem;
-    font-weight: 600;
-  }
+  .visit { color: var(--accent); font-size: 0.8rem; font-weight: 600; }
 
-  /* AD RECTANGLE */
+  /* AD ZONE (kept, clearly labelled, only fills once you add AdSense) */
   .ad-rectangle {
-    background: var(--surface);
-    border: 1px dashed var(--border);
-    border-radius: 12px;
-    padding: 30px;
-    text-align: center;
-    color: var(--muted);
-    font-size: 0.8rem;
-    margin: 40px 0;
+    background: var(--surface); border: 1px dashed var(--border); border-radius: 12px;
+    padding: 30px; text-align: center; color: #555; font-size: 0.8rem; margin: 40px 0 0;
   }
-  .ad-rectangle .ad-label {
-    font-size: 0.65rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: #444;
-    margin-bottom: 8px;
-  }
-  .ad-placeholder {
-    font-size: 0.9rem;
-    color: #555;
-  }
+  .ad-label { font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: #444; margin-bottom: 8px; }
 
-  /* SIDEBAR LAYOUT */
-  .main-with-sidebar {
-    display: grid;
-    grid-template-columns: 1fr 300px;
-    gap: 40px;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 40px 60px;
-  }
-  .sidebar {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-  }
-  .sidebar-widget {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    padding: 20px;
-  }
-  .widget-title {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 0.95rem;
-    font-weight: 600;
-    margin-bottom: 16px;
-    color: var(--text);
-  }
-  .trending-item {
-    display: flex;
-    gap: 12px;
-    align-items: flex-start;
-    padding: 10px 0;
-    border-bottom: 1px solid var(--border);
-    cursor: pointer;
-  }
+  /* SIDEBAR */
+  .sidebar { display: flex; flex-direction: column; gap: 24px; }
+  .ad-side { background: var(--surface); border: 1px dashed var(--border); border-radius: 12px; padding: 24px; text-align: center; color: #555; font-size: 0.75rem; }
+  .sidebar-widget { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 20px; }
+  .widget-title { font-family: 'Space Grotesk', sans-serif; font-size: 0.95rem; font-weight: 600; margin-bottom: 16px; }
+  .trending-item { display: flex; gap: 12px; align-items: flex-start; padding: 10px 0; border-bottom: 1px solid var(--border); }
   .trending-item:last-child { border-bottom: none; }
-  .trend-num {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: var(--border);
-    min-width: 24px;
-  }
-  .trend-name {
-    font-size: 0.875rem;
-    font-weight: 500;
-    margin-bottom: 2px;
-  }
+  .trend-num { font-family: 'Space Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; color: var(--border); min-width: 24px; }
+  .trend-name { font-size: 0.875rem; font-weight: 500; margin-bottom: 2px; }
   .trend-cat { font-size: 0.75rem; color: var(--muted); }
 
   /* NEWSLETTER */
   .newsletter {
-    background: linear-gradient(135deg, #1a1030, #0f1a30);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 40px;
-    text-align: center;
-    margin: 0 40px 60px;
+    background: linear-gradient(135deg, #1a1030, #0f1a30); border: 1px solid var(--border);
+    border-radius: 16px; padding: 40px; text-align: center; max-width: 1120px; margin: 0 auto 60px;
   }
-  .newsletter h3 {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 1.4rem;
-    font-weight: 700;
-    margin-bottom: 10px;
-  }
+  .newsletter h3 { font-family: 'Space Grotesk', sans-serif; font-size: 1.4rem; font-weight: 700; margin-bottom: 10px; }
   .newsletter p { color: var(--muted); font-size: 0.9rem; margin-bottom: 24px; }
-  .email-row {
-    display: flex;
-    gap: 10px;
-    max-width: 420px;
-    margin: 0 auto;
-  }
+  .email-row { display: flex; gap: 10px; max-width: 420px; margin: 0 auto; }
   .email-row input {
-    flex: 1;
-    background: var(--bg);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 12px 16px;
-    color: var(--text);
-    font-family: 'Inter', sans-serif;
-    font-size: 0.875rem;
-    outline: none;
+    flex: 1; background: var(--bg); border: 1px solid var(--border); border-radius: 8px;
+    padding: 12px 16px; color: var(--text); font-family: 'Inter', sans-serif; font-size: 0.875rem; outline: none;
   }
   .email-row button {
-    background: var(--accent);
-    color: #fff;
-    border: none;
-    border-radius: 8px;
-    padding: 12px 20px;
-    font-weight: 600;
-    font-size: 0.875rem;
-    cursor: pointer;
-    font-family: 'Inter', sans-serif;
-    white-space: nowrap;
+    background: var(--accent); color: #fff; border: none; border-radius: 8px; padding: 12px 20px;
+    font-weight: 600; font-size: 0.875rem; cursor: pointer; font-family: 'Inter', sans-serif; white-space: nowrap;
   }
 
   /* FOOTER */
-  footer {
-    border-top: 1px solid var(--border);
-    padding: 40px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: var(--muted);
-    font-size: 0.8rem;
-  }
+  footer { border-top: 1px solid var(--border); padding: 40px; color: var(--muted); font-size: 0.8rem; }
+  .footer-top { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; margin-bottom: 24px; }
   footer a { color: var(--muted); text-decoration: none; }
-  .footer-links { display: flex; gap: 24px; }
+  footer a:hover { color: var(--text); }
+  .footer-links { display: flex; gap: 24px; flex-wrap: wrap; }
+  .footer-disclosure { font-size: 0.75rem; color: #555; max-width: 720px; line-height: 1.6; border-top: 1px solid var(--border); padding-top: 20px; }
 
   @media (max-width: 768px) {
-    nav { padding: 16px 20px; }
-    .nav-links { display: none; }
+    nav { padding: 16px 20px; } .nav-links { display: none; }
     .hero { padding: 50px 20px 40px; }
-    .stats { gap: 24px; flex-wrap: wrap; }
-    .section { padding: 40px 20px; }
-    .main-with-sidebar { grid-template-columns: 1fr; padding: 0 20px 40px; }
+    .section { padding: 40px 20px 0; }
+    .main-with-sidebar { grid-template-columns: 1fr; padding: 32px 20px 40px; }
     .sidebar { display: none; }
     .newsletter { margin: 0 20px 40px; }
-    footer { flex-direction: column; gap: 16px; text-align: center; }
+    .footer-top { flex-direction: column; align-items: flex-start; }
   }
 </style>
 </head>
 <body>
 
-<!-- TOP AD BANNER -->
-<div class="ad-banner">
-  <span>AD</span> Your Google AdSense banner appears here — 728×90 Leaderboard — Earns $2–$15 per 1000 views
+<!-- AFFILIATE DISCLOSURE (required, always visible) -->
+<div class="disclosure-bar">
+  Some links on this site are affiliate links — if you sign up through them we may earn a commission at no extra cost to you. It never changes our picks. <a href="/disclosure.html">Full disclosure</a>
 </div>
 
 <!-- NAV -->
 <nav>
-  <div class="logo">Tool<span>Pulse</span></div>
+  <a href="/" class="logo">Tool<span>Pulse</span></a>
   <div class="nav-links">
-    <a href="#">Directory</a>
-    <a href="#">Reviews</a>
-    <a href="#">Compare</a>
-    <a href="#">Blog</a>
-    <a href="#">Deals</a>
+    <a href="#tools">Directory</a>
+    <a href="#tools">Reviews</a>
+    <a href="#tools">Compare</a>
+    <a href="#guides">Guides</a>
   </div>
-  <button class="nav-cta">Submit a Tool</button>
+  <a href="#newsletter" class="nav-cta">Get the newsletter</a>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-eyebrow">🔥 500+ AI Tools Reviewed</div>
-  <h1>Find the <em>right AI tool</em> for every job</h1>
-  <p>Unbiased reviews, real comparisons, and weekly deals — all in one place.</p>
+  <div class="hero-eyebrow">Independent AI tool guides</div>
+  <h1>Find the <em>right AI tool</em> — without the hype</h1>
+  <p>Plain-English guides to what each AI tool actually does, who it's for, and whether the paid plan is worth it. No sponsored rankings.</p>
   <div class="search-wrap">
     <input type="text" placeholder="Search tools — e.g. 'image generator', 'coding AI'..." id="searchInput" oninput="filterTools()" />
     <div class="search-icon">🔍</div>
   </div>
 </section>
 
-<!-- STATS -->
-<div class="stats">
-  <div class="stat"><div class="stat-num">512<span>+</span></div><div class="stat-label">Tools Listed</div></div>
-  <div class="stat"><div class="stat-num">48<span>k</span></div><div class="stat-label">Monthly Visitors</div></div>
-  <div class="stat"><div class="stat-num">4.8<span>★</span></div><div class="stat-label">Avg Review Score</div></div>
-  <div class="stat"><div class="stat-num">120<span>+</span></div><div class="stat-label">Categories</div></div>
+<!-- TRUST ROW (honest) -->
+<div class="trust">
+  <div class="trust-item"><span class="dot"></span> Independently chosen</div>
+  <div class="trust-item"><span class="dot"></span> Honest pros &amp; cons</div>
+  <div class="trust-item"><span class="dot"></span> Free &amp; paid options</div>
+  <div class="trust-item"><span class="dot"></span> Updated for 2026</div>
 </div>
 
-<!-- MAIN CONTENT -->
-<div class="section">
+<!-- CATEGORIES -->
+<div class="section" id="tools">
   <div class="section-header">
-    <div class="section-title">Browse by Category</div>
+    <div>
+      <div class="section-title">Browse by Category</div>
+      <div class="section-sub">A growing, hand-picked directory — new tools added regularly.</div>
+    </div>
   </div>
   <div class="categories">
     <div class="cat-pill active" onclick="filterCategory('all', this)">All Tools</div>
-    <div class="cat-pill" onclick="filterCategory('writing', this)">✍️ Writing</div>
+    <div class="cat-pill" onclick="filterCategory('writing', this)">✍️ Writing &amp; Chat</div>
     <div class="cat-pill" onclick="filterCategory('image', this)">🎨 Image</div>
     <div class="cat-pill" onclick="filterCategory('coding', this)">💻 Coding</div>
     <div class="cat-pill" onclick="filterCategory('video', this)">🎬 Video</div>
-    <div class="cat-pill" onclick="filterCategory('productivity', this)">⚡ Productivity</div>
-    <div class="cat-pill" onclick="filterCategory('marketing', this)">📣 Marketing</div>
+    <div class="cat-pill" onclick="filterCategory('research', this)">🔎 Research</div>
     <div class="cat-pill" onclick="filterCategory('audio', this)">🎵 Audio</div>
+    <div class="cat-pill" onclick="filterCategory('productivity', this)">⚡ Productivity</div>
   </div>
 </div>
 
@@ -533,180 +263,165 @@
   <!-- TOOLS GRID -->
   <div>
     <div class="section-header" style="margin-bottom:20px;">
-      <div class="section-title">Featured & Top Rated</div>
-      <a class="see-all" href="#">View all →</a>
+      <div class="section-title">Our Picks</div>
+      <a class="visit" href="#newsletter">Get new picks by email →</a>
     </div>
 
     <div class="tools-grid" id="toolsGrid">
 
-      <a class="tool-card featured" href="#" data-cat="writing">
-        <div class="featured-badge">⭐ Sponsored</div>
+      <!-- Replace each href with your affiliate link once you join the program -->
+      <a class="tool-card featured" href="https://claude.ai" target="_blank" rel="noopener" data-cat="writing">
+        <div class="pick-badge">Editor's Pick</div>
         <div class="tool-icon" style="background:#1e1030;">🤖</div>
-        <div class="tool-name">Claude AI</div>
-        <div class="tool-desc">The most thoughtful AI assistant for writing, analysis, coding, and complex reasoning tasks.</div>
+        <div class="tool-name">Claude</div>
+        <div class="tool-desc">Our go-to for long-form writing, editing, and document-heavy work. Tends to sound the most natural and handle nuance well.</div>
         <div class="tool-meta">
           <div style="display:flex;gap:6px;"><span class="tag">Writing</span><span class="tag green">Free plan</span></div>
-          <div class="rating">★ 4.9</div>
+          <div class="visit">Visit →</div>
         </div>
       </a>
 
-      <a class="tool-card" href="#" data-cat="image">
-        <div class="affiliate-badge">Affiliate</div>
+      <a class="tool-card" href="https://chatgpt.com" target="_blank" rel="noopener" data-cat="writing">
+        <div class="tool-icon" style="background:#0a1a14;">💬</div>
+        <div class="tool-name">ChatGPT</div>
+        <div class="tool-desc">The best all-rounder. Strong at brainstorming, general tasks, images and voice — the safe first pick if you only want one tool.</div>
+        <div class="tool-meta">
+          <div style="display:flex;gap:6px;"><span class="tag">Writing</span><span class="tag green">Free plan</span></div>
+          <div class="visit">Visit →</div>
+        </div>
+      </a>
+
+      <a class="tool-card" href="https://www.midjourney.com" target="_blank" rel="noopener" data-cat="image">
+        <div class="aff-badge">Affiliate</div>
         <div class="tool-icon" style="background:#0f1e30;">🎨</div>
         <div class="tool-name">Midjourney</div>
-        <div class="tool-desc">Create stunning, photorealistic images from text prompts. The go-to for designers and creators.</div>
+        <div class="tool-desc">Still the quality leader for stylised, artistic images (now on V8.1). A learning curve, but the output does marketing work for you.</div>
         <div class="tool-meta">
-          <div style="display:flex;gap:6px;"><span class="tag">Image</span><span class="tag">$10/mo</span></div>
-          <div class="rating">★ 4.8</div>
+          <div style="display:flex;gap:6px;"><span class="tag">Image</span><span class="tag">Paid</span></div>
+          <div class="visit">Visit →</div>
         </div>
       </a>
 
-      <a class="tool-card" href="#" data-cat="coding">
-        <div class="affiliate-badge">Affiliate</div>
+      <a class="tool-card" href="https://cursor.com" target="_blank" rel="noopener" data-cat="coding">
         <div class="tool-icon" style="background:#0a1e0a;">💻</div>
+        <div class="tool-name">Cursor</div>
+        <div class="tool-desc">The dominant AI-native code editor. Feels less like autocomplete and more like a teammate that can plan and write whole features.</div>
+        <div class="tool-meta">
+          <div style="display:flex;gap:6px;"><span class="tag">Coding</span><span class="tag green">Free + paid</span></div>
+          <div class="visit">Visit →</div>
+        </div>
+      </a>
+
+      <a class="tool-card" href="https://github.com/features/copilot" target="_blank" rel="noopener" data-cat="coding">
+        <div class="aff-badge">Affiliate</div>
+        <div class="tool-icon" style="background:#10101e;">⌨️</div>
         <div class="tool-name">GitHub Copilot</div>
-        <div class="tool-desc">AI pair programmer that suggests code in real-time. Works with VS Code, JetBrains, and more.</div>
+        <div class="tool-desc">Best value in AI coding. Inline suggestions and chat inside VS Code and JetBrains, with a genuinely useful free tier.</div>
         <div class="tool-meta">
-          <div style="display:flex;gap:6px;"><span class="tag">Coding</span><span class="tag green">Free trial</span></div>
-          <div class="rating">★ 4.7</div>
+          <div style="display:flex;gap:6px;"><span class="tag">Coding</span><span class="tag green">Free + paid</span></div>
+          <div class="visit">Visit →</div>
         </div>
       </a>
 
-      <a class="tool-card" href="#" data-cat="video">
-        <div class="tool-icon" style="background:#1e0a0a;">🎬</div>
-        <div class="tool-name">Runway ML</div>
-        <div class="tool-desc">Generate, edit, and transform videos with AI. Text-to-video and motion brush tools.</div>
+      <a class="tool-card" href="https://www.perplexity.ai" target="_blank" rel="noopener" data-cat="research">
+        <div class="tool-icon" style="background:#0a0f1e;">🔎</div>
+        <div class="tool-name">Perplexity</div>
+        <div class="tool-desc">Best for research because it cites its sources. If you need answers you can actually verify, this beats a plain chatbot.</div>
         <div class="tool-meta">
-          <div style="display:flex;gap:6px;"><span class="tag">Video</span><span class="tag">$15/mo</span></div>
-          <div class="rating">★ 4.6</div>
+          <div style="display:flex;gap:6px;"><span class="tag">Research</span><span class="tag green">Free plan</span></div>
+          <div class="visit">Visit →</div>
         </div>
       </a>
 
-      <a class="tool-card" href="#" data-cat="productivity">
-        <div class="affiliate-badge">Affiliate</div>
-        <div class="tool-icon" style="background:#0a0f1e;">⚡</div>
-        <div class="tool-name">Notion AI</div>
-        <div class="tool-desc">AI built right into your workspace. Summarize docs, generate content, and automate tasks.</div>
-        <div class="tool-meta">
-          <div style="display:flex;gap:6px;"><span class="tag">Productivity</span><span class="tag green">Free tier</span></div>
-          <div class="rating">★ 4.5</div>
-        </div>
-      </a>
-
-      <a class="tool-card" href="#" data-cat="marketing">
-        <div class="tool-icon" style="background:#1a100a;">📣</div>
-        <div class="tool-name">Copy.ai</div>
-        <div class="tool-desc">AI copywriter for ads, emails, landing pages, and social media. 90+ content templates.</div>
-        <div class="tool-meta">
-          <div style="display:flex;gap:6px;"><span class="tag">Marketing</span><span class="tag green">Free plan</span></div>
-          <div class="rating">★ 4.4</div>
-        </div>
-      </a>
-
-      <a class="tool-card" href="#" data-cat="audio">
+      <a class="tool-card" href="https://elevenlabs.io" target="_blank" rel="noopener" data-cat="audio">
+        <div class="aff-badge">Affiliate</div>
         <div class="tool-icon" style="background:#0a1a1a;">🎵</div>
         <div class="tool-name">ElevenLabs</div>
-        <div class="tool-desc">Ultra-realistic AI voice generation and cloning. Powers podcasts, audiobooks, and apps.</div>
+        <div class="tool-desc">The standard for realistic AI voice and narration. Powers podcasts, audiobooks and app voiceovers. Free tier to try it.</div>
         <div class="tool-meta">
           <div style="display:flex;gap:6px;"><span class="tag">Audio</span><span class="tag green">Free tier</span></div>
-          <div class="rating">★ 4.8</div>
+          <div class="visit">Visit →</div>
         </div>
       </a>
 
-      <a class="tool-card" href="#" data-cat="writing">
-        <div class="affiliate-badge">Affiliate</div>
-        <div class="tool-icon" style="background:#10101e;">✍️</div>
-        <div class="tool-name">Jasper AI</div>
-        <div class="tool-desc">Enterprise AI writing platform for marketing teams. Brand voice, campaigns, and SEO content.</div>
+      <a class="tool-card" href="https://ideogram.ai" target="_blank" rel="noopener" data-cat="image">
+        <div class="tool-icon" style="background:#1a100a;">🔤</div>
+        <div class="tool-name">Ideogram</div>
+        <div class="tool-desc">The pick when you need readable text inside an image — posters, thumbnails, social graphics. Where Midjourney still struggles.</div>
         <div class="tool-meta">
-          <div style="display:flex;gap:6px;"><span class="tag">Writing</span><span class="tag">$49/mo</span></div>
-          <div class="rating">★ 4.3</div>
+          <div style="display:flex;gap:6px;"><span class="tag">Image</span><span class="tag green">Free tier</span></div>
+          <div class="visit">Visit →</div>
+        </div>
+      </a>
+
+      <a class="tool-card" href="https://www.notion.so/product/ai" target="_blank" rel="noopener" data-cat="productivity">
+        <div class="aff-badge">Affiliate</div>
+        <div class="tool-icon" style="background:#161616;">⚡</div>
+        <div class="tool-name">Notion AI</div>
+        <div class="tool-desc">Worth it if your work already lives in Notion. Summarise docs, draft content, and search your workspace without switching apps.</div>
+        <div class="tool-meta">
+          <div style="display:flex;gap:6px;"><span class="tag">Productivity</span><span class="tag green">Free tier</span></div>
+          <div class="visit">Visit →</div>
         </div>
       </a>
 
     </div>
 
-    <!-- MID-CONTENT AD -->
+    <!-- IN-CONTENT AD ZONE (stays empty until you add your AdSense code) -->
     <div class="ad-rectangle">
-      <div class="ad-label">Advertisement</div>
-      <div class="ad-placeholder">📊 Google AdSense — 336×280 Rectangle Ad<br>Avg $5–$25 RPM in AI/Tech niche</div>
+      <div class="ad-label">Ad space</div>
+      Your ad unit will appear here once AdSense is approved.
     </div>
-
   </div>
 
   <!-- SIDEBAR -->
   <aside class="sidebar">
-    <!-- SIDEBAR AD -->
-    <div style="background:var(--surface);border:1px dashed var(--border);border-radius:12px;padding:20px;text-align:center;color:#555;font-size:0.75rem;">
-      <div style="font-size:0.65rem;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:8px;color:#444;">Ad</div>
-      300×250 Sidebar Ad<br>Google AdSense
-    </div>
+    <div class="ad-side"><div class="ad-label">Ad space</div>Reserved for a sidebar ad unit</div>
 
-    <!-- TRENDING -->
     <div class="sidebar-widget">
-      <div class="widget-title">🔥 Trending This Week</div>
-      <div class="trending-item">
-        <div class="trend-num">01</div>
-        <div><div class="trend-name">Sora by OpenAI</div><div class="trend-cat">Video Generation</div></div>
-      </div>
-      <div class="trending-item">
-        <div class="trend-num">02</div>
-        <div><div class="trend-name">Claude 4</div><div class="trend-cat">Writing & Analysis</div></div>
-      </div>
-      <div class="trending-item">
-        <div class="trend-num">03</div>
-        <div><div class="trend-name">Perplexity Pro</div><div class="trend-cat">Research</div></div>
-      </div>
-      <div class="trending-item">
-        <div class="trend-num">04</div>
-        <div><div class="trend-name">Kling AI</div><div class="trend-cat">Video</div></div>
-      </div>
-      <div class="trending-item">
-        <div class="trend-num">05</div>
-        <div><div class="trend-name">Ideogram 3</div><div class="trend-cat">Image</div></div>
-      </div>
+      <div class="widget-title">🔥 Moving Fast in 2026</div>
+      <div class="trending-item"><div class="trend-num">01</div><div><div class="trend-name">Sora 2</div><div class="trend-cat">Video generation</div></div></div>
+      <div class="trending-item"><div class="trend-num">02</div><div><div class="trend-name">Cursor</div><div class="trend-cat">AI code editor</div></div></div>
+      <div class="trending-item"><div class="trend-num">03</div><div><div class="trend-name">Midjourney V8.1</div><div class="trend-cat">Image generation</div></div></div>
+      <div class="trending-item"><div class="trend-num">04</div><div><div class="trend-name">Perplexity</div><div class="trend-cat">Research</div></div></div>
+      <div class="trending-item"><div class="trend-num">05</div><div><div class="trend-name">Veo 3</div><div class="trend-cat">Video generation</div></div></div>
     </div>
 
-    <!-- TOP AFFILIATE DEAL -->
-    <div class="sidebar-widget" style="border-color:rgba(0,212,170,0.4);background:linear-gradient(135deg,#0d1e1a,#1a1a24);">
-      <div class="widget-title">💰 Top Affiliate Deal</div>
-      <div style="font-size:0.875rem;color:var(--muted);margin-bottom:12px;">Jasper AI is offering 30% recurring commission to affiliates right now.</div>
-      <div style="background:rgba(0,212,170,0.1);border:1px solid rgba(0,212,170,0.3);border-radius:8px;padding:12px;font-size:0.8rem;color:var(--accent2);">
-        Earn up to <strong>$500/mo</strong> per referred customer
-      </div>
-      <a href="#" style="display:block;margin-top:12px;background:var(--accent2);color:#000;text-align:center;padding:10px;border-radius:8px;font-weight:700;font-size:0.85rem;text-decoration:none;">Join Program →</a>
+    <div class="sidebar-widget" id="guides">
+      <div class="widget-title">📘 Start Here</div>
+      <div style="font-size:0.85rem;color:var(--muted);line-height:1.6;">New to AI tools? Our beginner guides explain the categories in plain English so you don't overpay for things you won't use.</div>
+      <a href="#newsletter" style="display:block;margin-top:14px;background:var(--accent);color:#fff;text-align:center;padding:10px;border-radius:8px;font-weight:600;font-size:0.85rem;text-decoration:none;">Read the guides →</a>
     </div>
 
-    <!-- SIDEBAR AD 2 -->
-    <div style="background:var(--surface);border:1px dashed var(--border);border-radius:12px;padding:20px;text-align:center;color:#555;font-size:0.75rem;">
-      <div style="font-size:0.65rem;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:8px;color:#444;">Ad</div>
-      300×600 Half-Page Ad<br>Premium slot — $8–$40 RPM
-    </div>
+    <div class="ad-side"><div class="ad-label">Ad space</div>Reserved for a sidebar ad unit</div>
   </aside>
 </div>
 
 <!-- NEWSLETTER -->
-<div class="newsletter" style="max-width:1200px;margin:0 auto 60px;margin-left:40px;margin-right:40px;">
-  <h3>🚀 Weekly AI Tool Digest</h3>
-  <p>Get the 5 best new AI tools every Friday. 12,000+ subscribers. No spam.</p>
+<div class="newsletter" id="newsletter">
+  <h3>🚀 The weekly AI tool digest</h3>
+  <p>A short email each week: the best new AI tools, honestly summarised. No spam, unsubscribe anytime.</p>
   <div class="email-row">
     <input type="email" placeholder="your@email.com" />
-    <button>Subscribe Free</button>
+    <button onclick="alert('Connect this form to your email provider (e.g. MailerLite or Buttondown) to start collecting subscribers.')">Subscribe</button>
   </div>
-  <div style="font-size:0.75rem;color:#444;margin-top:12px;">📧 Email list = your most valuable asset. Monetize with sponsored newsletters ($200–$2,000 per issue)</div>
 </div>
 
 <!-- FOOTER -->
 <footer>
-  <div class="logo" style="font-family:'Space Grotesk',sans-serif;font-weight:700;">Tool<span style="color:#7c5cfc;">Pulse</span></div>
-  <div class="footer-links">
-    <a href="#">About</a>
-    <a href="#">Advertise</a>
-    <a href="#">Affiliate Program</a>
-    <a href="#">Privacy</a>
-    <a href="#">Contact</a>
+  <div class="footer-top">
+    <a href="/" class="logo" style="font-family:'Space Grotesk',sans-serif;font-weight:700;">Tool<span style="color:#7c5cfc;">Pulse</span></a>
+    <div class="footer-links">
+      <a href="/about.html">About</a>
+      <a href="/disclosure.html">Affiliate Disclosure</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/contact.html">Contact</a>
+    </div>
   </div>
-  <div style="color:#444;">© 2025 ToolPulse. All rights reserved.</div>
+  <div class="footer-disclosure">
+    ToolPulse publishes independent guides to AI tools. Some outbound links are affiliate links, meaning we may earn a commission if you subscribe or purchase through them — at no extra cost to you. This never affects which tools we recommend or what we say about them. Product names, logos and brands are property of their respective owners. Pricing and features change often; always confirm current details on each tool's official site.
+    <br><br>© 2026 ToolPulse. All rights reserved.
+  </div>
 </footer>
 
 <script>
@@ -714,19 +429,13 @@
     document.querySelectorAll('.cat-pill').forEach(p => p.classList.remove('active'));
     el.classList.add('active');
     document.querySelectorAll('.tool-card').forEach(card => {
-      if (cat === 'all' || card.dataset.cat === cat) {
-        card.style.display = 'block';
-      } else {
-        card.style.display = 'none';
-      }
+      card.style.display = (cat === 'all' || card.dataset.cat === cat) ? 'block' : 'none';
     });
   }
-
   function filterTools() {
     const q = document.getElementById('searchInput').value.toLowerCase();
     document.querySelectorAll('.tool-card').forEach(card => {
-      const text = card.innerText.toLowerCase();
-      card.style.display = text.includes(q) ? 'block' : 'none';
+      card.style.display = card.innerText.toLowerCase().includes(q) ? 'block' : 'none';
     });
   }
 </script>
