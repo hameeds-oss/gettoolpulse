@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — ToolPulse</title>
+<meta name="description" content="Get in touch with ToolPulse — suggestions, corrections, partnerships.">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  :root{--bg:#0a0a0f;--surface:#13131a;--border:#2a2a38;--accent:#7c5cfc;--accent2:#00d4aa;--text:#e8e8f0;--muted:#7a7a96}
+  body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.7}
+  nav{display:flex;align-items:center;justify-content:space-between;padding:18px 40px;border-bottom:1px solid var(--border);position:sticky;top:0;background:rgba(10,10,15,.92);backdrop-filter:blur(12px);z-index:100}
+  .logo{font-family:'Space Grotesk',sans-serif;font-size:1.4rem;font-weight:700;color:#fff;text-decoration:none}
+  .logo span{color:var(--accent)}
+  .nav-links{display:flex;gap:28px}
+  .nav-links a{color:var(--muted);text-decoration:none;font-size:.9rem;font-weight:500}
+  .nav-links a:hover{color:var(--text)}
+  .wrap{max-width:680px;margin:0 auto;padding:60px 24px}
+  h1{font-family:'Space Grotesk',sans-serif;font-size:2.4rem;font-weight:700;margin-bottom:8px}
+  .lead{color:var(--muted);font-size:1.1rem;margin-bottom:36px}
+  p{color:#c8c8d8;margin-bottom:16px}
+  .contact-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:32px;text-align:center;margin:28px 0}
+  .contact-card .email{font-family:'Space Grotesk',sans-serif;font-size:1.4rem;font-weight:600;color:var(--accent2);text-decoration:none;display:inline-block;margin:12px 0}
+  .reasons{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:32px}
+  .reason{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:20px}
+  .reason h3{font-family:'Space Grotesk',sans-serif;font-size:.95rem;margin-bottom:6px}
+  .reason p{font-size:.85rem;color:var(--muted);margin:0}
+  footer{border-top:1px solid var(--border);padding:32px 40px;color:var(--muted);font-size:.8rem;text-align:center}
+  footer a{color:var(--muted);text-decoration:none;margin:0 10px}
+  @media(max-width:768px){nav{padding:16px 20px}.nav-links{display:none}.wrap{padding:40px 20px}h1{font-size:1.9rem}.reasons{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<nav>
+  <a href="/" class="logo">Tool<span>Pulse</span></a>
+  <div class="nav-links"><a href="/#tools">Directory</a><a href="/about.html">About</a><a href="/contact.html">Contact</a></div>
+</nav>
+
+<div class="wrap">
+  <h1>Contact us</h1>
+  <p class="lead">Questions, corrections, tool suggestions, or partnership ideas — we read everything.</p>
+
+  <div class="contact-card">
+    <div style="color:var(--muted);font-size:.85rem;">Email us at</div>
+    <a class="email" href="mailto:hello@gettoolpulse.com">hello@gettoolpulse.com</a>
+    <p style="font-size:.85rem;color:var(--muted);margin:0;">We aim to reply within a couple of business days.</p>
+  </div>
+
+  <div class="reasons">
+    <div class="reason"><h3>✍️ Suggest a tool</h3><p>Think we're missing something great? Tell us what and why.</p></div>
+    <div class="reason"><h3>🔧 Spot a correction</h3><p>Pricing or features changed? Let us know and we'll fix it.</p></div>
+    <div class="reason"><h3>🤝 Partnerships</h3><p>Tool makers and brands welcome to get in touch.</p></div>
+    <div class="reason"><h3>💬 Just feedback</h3><p>Liked something, disagreed with a pick? We want to hear it.</p></div>
+  </div>
+</div>
+
+<footer>
+  <div>
+    <a href="/about.html">About</a>
+    <a href="/disclosure.html">Affiliate Disclosure</a>
+    <a href="/privacy.html">Privacy</a>
+    <a href="/contact.html">Contact</a>
+  </div>
+  <p style="margin-top:16px;color:#555;">© 2026 ToolPulse. All rights reserved.</p>
+</footer>
+</body>
+</html>
