@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to Write Better AI Prompts: A Complete Guide (With Examples) — ToolPulse</title>
+<meta name="description" content="Learn how to write better AI prompts in 2026. A practical guide with real before-and-after examples, a simple prompt framework, and fixes for the most common mistakes.">
+<link rel="canonical" href="https://gettoolpulse.com/how-to-write-ai-prompts.html">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  :root{--bg:#0a0a0f;--surface:#13131a;--card:#1a1a24;--border:#2a2a38;--accent:#7c5cfc;--accent2:#00d4aa;--text:#e8e8f0;--muted:#7a7a96}
+  body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.7}
+  .disclosure-bar{background:var(--surface);border-bottom:1px solid var(--border);text-align:center;padding:8px 16px;font-size:.78rem;color:var(--muted)}
+  .disclosure-bar a{color:var(--accent);text-decoration:none}
+  nav{display:flex;align-items:center;justify-content:space-between;padding:18px 40px;border-bottom:1px solid var(--border);position:sticky;top:0;background:rgba(10,10,15,.92);backdrop-filter:blur(12px);z-index:100}
+  .logo{font-family:'Space Grotesk',sans-serif;font-size:1.4rem;font-weight:700;color:#fff;text-decoration:none}
+  .logo span{color:var(--accent)}
+  .nav-links{display:flex;gap:28px}
+  .nav-links a{color:var(--muted);text-decoration:none;font-size:.9rem;font-weight:500}
+  .nav-links a:hover{color:var(--text)}
+  article{max-width:760px;margin:0 auto;padding:48px 24px}
+  .breadcrumb{font-size:.8rem;color:var(--muted);margin-bottom:20px}
+  .breadcrumb a{color:var(--accent);text-decoration:none}
+  h1{font-family:'Space Grotesk',sans-serif;font-size:2.2rem;font-weight:700;line-height:1.2;margin-bottom:16px}
+  .byline{display:flex;gap:16px;flex-wrap:wrap;font-size:.85rem;color:var(--muted);margin-bottom:28px;padding-bottom:24px;border-bottom:1px solid var(--border)}
+  .byline strong{color:var(--text)}
+  h2{font-family:'Space Grotesk',sans-serif;font-size:1.5rem;font-weight:600;margin:38px 0 14px;scroll-margin-top:80px}
+  h3{font-family:'Space Grotesk',sans-serif;font-size:1.15rem;font-weight:600;margin:24px 0 8px}
+  p{margin-bottom:18px;color:#c8c8d8}
+  ul,ol{margin:0 0 18px 22px;color:#c8c8d8}
+  li{margin-bottom:8px}
+  a.inline{color:var(--accent);text-decoration:none}
+  .tldr{background:linear-gradient(135deg,#1a1a24,#1e1830);border:1px solid var(--accent);border-radius:14px;padding:24px;margin-bottom:32px}
+  .tldr h3{margin:0 0 10px;font-family:'Space Grotesk',sans-serif;font-size:1rem}
+  .tldr p{margin:0;color:#d8d8e8;font-size:.95rem}
+  .toc{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:20px 24px;margin-bottom:32px}
+  .toc h4{font-family:'Space Grotesk',sans-serif;font-size:.95rem;margin-bottom:10px}
+  .toc ul{list-style:none;margin:0;columns:2;column-gap:24px}
+  .toc li{margin-bottom:6px}
+  .toc a{color:var(--accent);text-decoration:none;font-size:.875rem}
+  .example{border-radius:12px;overflow:hidden;border:1px solid var(--border);margin:20px 0}
+  .ex-bad,.ex-good{padding:16px 18px;font-size:.9rem}
+  .ex-bad{background:rgba(255,107,107,.07);border-bottom:1px solid var(--border)}
+  .ex-good{background:rgba(0,212,170,.07)}
+  .ex-label{font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:6px}
+  .ex-bad .ex-label{color:#ff6b6b}.ex-good .ex-label{color:var(--accent2)}
+  .ex-bad code,.ex-good code{color:#e8e8f0;font-family:inherit;font-style:italic}
+  .callout{background:var(--card);border-left:3px solid var(--accent2);padding:16px 18px;border-radius:0 8px 8px 0;margin:24px 0;font-size:.92rem}
+  table{width:100%;border-collapse:collapse;margin:24px 0;font-size:.875rem}
+  th,td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--border)}
+  th{font-family:'Space Grotesk',sans-serif;background:var(--surface)}
+  td{color:#c8c8d8}tr td:first-child{font-weight:600;color:var(--text)}
+  .faq-item{border:1px solid var(--border);border-radius:12px;margin-bottom:12px;overflow:hidden}
+  .faq-q{padding:16px 20px;font-weight:600;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:.95rem}
+  .faq-q::after{content:'+';color:var(--accent);font-size:1.3rem}
+  .faq-item.open .faq-q::after{content:'\2212'}
+  .faq-a{padding:0 20px;max-height:0;overflow:hidden;transition:all .3s;color:var(--muted);font-size:.9rem}
+  .faq-item.open .faq-a{padding:0 20px 18px;max-height:400px}
+  .readalso{background:var(--surface);border-left:3px solid var(--accent);padding:16px 18px;border-radius:0 8px 8px 0;margin:28px 0;font-size:.9rem}
+  .readalso a{color:var(--accent);text-decoration:none;font-weight:600}
+  footer{border-top:1px solid var(--border);padding:32px 40px;color:var(--muted);font-size:.8rem;text-align:center;margin-top:40px}
+  footer a{color:var(--muted);text-decoration:none;margin:0 10px}
+  @media(max-width:768px){nav{padding:16px 20px}.nav-links{display:none}article{padding:32px 20px}h1{font-size:1.7rem}.toc ul{columns:1}}
+</style>
+</head>
+<body>
+<div class="disclosure-bar">Some links are affiliate links — we may earn a commission at no cost to you. It never changes our picks. <a href="/disclosure.html">Disclosure</a></div>
+<nav>
+  <a href="/" class="logo">Tool<span>Pulse</span></a>
+  <div class="nav-links"><a href="/#tools">Directory</a><a href="/#guides-section">Guides</a><a href="/about.html">About</a><a href="/contact.html">Contact</a></div>
+</nav>
+
+<article>
+  <div class="breadcrumb"><a href="/">Home</a> › <a href="/#guides-section">Guides</a> › How to Write AI Prompts</div>
+  <h1>How to Write Better AI Prompts: A Complete Guide (With Examples)</h1>
+  <div class="byline"><span>By <strong>The ToolPulse Team</strong></span><span>Updated June 2026</span><span>⏱ 13 min read</span></div>
+
+  <div class="tldr">
+    <h3>The short version</h3>
+    <p>Good prompts share five things: a clear role, a specific task, relevant context, a defined format, and an example or two. Vague in, vague out. The single biggest upgrade most people can make is simply telling the AI <em>who it is</em>, <em>exactly what you want</em>, and <em>what good looks like</em>.</p>
+  </div>
+
+  <div class="toc">
+    <h4>What's inside</h4>
+    <ul>
+      <li><a href="#why">Why prompts matter</a></li>
+      <li><a href="#framework">The 5-part framework</a></li>
+      <li><a href="#examples">Before &amp; after examples</a></li>
+      <li><a href="#techniques">Advanced techniques</a></li>
+      <li><a href="#mistakes">Common mistakes</a></li>
+      <li><a href="#templates">Ready-to-use templates</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+  </div>
+
+  <p>Most people who feel let down by AI tools don't have a bad tool — they have a vague prompt. The same model that produces generic, forgettable output for one person produces sharp, useful work for another, and the difference is almost entirely in how the request is written. The good news: prompting isn't a dark art. It's a handful of habits anyone can learn in an afternoon, and this guide gives you all of them, with real examples you can copy.</p>
+
+  <h2 id="why">Why prompts matter so much</h2>
+  <p>An AI model doesn't know what's in your head. It only has the words you give it, plus its general training. When you type "write me a marketing email," the model has to guess at everything you left out: who it's for, what you're selling, what tone you want, how long it should be. It fills those gaps with the most average, generic choice — which is exactly why the output feels bland. A strong prompt removes the guessing. The more of the right detail you provide, the less the model has to invent, and the closer the result lands to what you actually wanted.</p>
+
+  <h2 id="framework">The 5-part prompt framework</h2>
+  <p>You don't need to memorise tricks. Almost every great prompt includes some combination of these five elements. Use as many as the task needs.</p>
+  <h3>1. Role — tell it who to be</h3>
+  <p>Asking the AI to adopt a role focuses its output. "You are an experienced email marketer" produces sharper marketing copy than no role at all, because it primes the model toward the right knowledge and tone.</p>
+  <h3>2. Task — say exactly what you want</h3>
+  <p>Be specific about the deliverable. Not "help with my email," but "write a 120-word promotional email announcing a 20% weekend sale." Specificity is the single highest-leverage habit in prompting.</p>
+  <h3>3. Context — give it the background</h3>
+  <p>Tell it what it needs to know: who the audience is, what you're selling, any constraints, the situation. Context is what turns generic output into <em>your</em> output.</p>
+  <h3>4. Format — define the shape of the answer</h3>
+  <p>Say how you want the result structured: a bulleted list, a table, three options, a specific length, a particular tone. If you don't specify, you get the model's default — which may not be what you need.</p>
+  <h3>5. Examples — show what good looks like</h3>
+  <p>One or two examples of the style or output you want will improve results more than almost anything else. "Match the tone of this example: [paste]" is remarkably effective.</p>
+
+  <h2 id="examples">Before &amp; after: real examples</h2>
+  <p>The fastest way to internalise this is to see weak and strong prompts side by side.</p>
+
+  <h3>Example 1 — A marketing email</h3>
+  <div class="example">
+    <div class="ex-bad"><div class="ex-label">✕ Weak prompt</div><code>Write a marketing email for my sale.</code></div>
+    <div class="ex-good"><div class="ex-label">✓ Strong prompt</div><code>You are an experienced email marketer. Write a 120-word promotional email for a small independent coffee roaster announcing a 20% off weekend sale on all beans. Friendly, warm tone, no hype or exclamation marks. Include a clear subject line and one call-to-action button text.</code></div>
+  </div>
+  <p>The strong version specifies role, length, business, offer, tone, and exact deliverables. The model no longer has to guess — and the output is usable on the first try.</p>
+
+  <h3>Example 2 — Summarising a document</h3>
+  <div class="example">
+    <div class="ex-bad"><div class="ex-label">✕ Weak prompt</div><code>Summarise this.</code></div>
+    <div class="ex-good"><div class="ex-label">✓ Strong prompt</div><code>Summarise the document below for a busy manager who has two minutes. Give me five bullet points covering the key decisions and any action items, then one sentence on what it means for our team. Plain language, no jargon.</code></div>
+  </div>
+  <p>"Summarise this" gives you a summary of unknown length and focus. The strong prompt defines the reader, the length, the structure, and what to emphasise.</p>
+
+  <h3>Example 3 — Brainstorming</h3>
+  <div class="example">
+    <div class="ex-bad"><div class="ex-label">✕ Weak prompt</div><code>Give me some business name ideas.</code></div>
+    <div class="ex-good"><div class="ex-label">✓ Strong prompt</div><code>Suggest 15 business name ideas for a mobile dog-grooming service aimed at busy urban professionals. I want names that feel friendly and trustworthy, are easy to say, and ideally have an available .com. Group them into "playful," "premium," and "simple," and avoid puns.</code></div>
+  </div>
+
+  <h2 id="techniques">Advanced techniques that genuinely help</h2>
+  <h3>Ask it to think step by step</h3>
+  <p>For anything involving reasoning, math, or multi-step logic, adding "think through this step by step before giving your answer" measurably improves accuracy. It nudges the model to work the problem rather than blurt the first answer.</p>
+  <h3>Iterate, don't restart</h3>
+  <p>Treat it as a conversation. If the first draft is close, say what to change — "make it shorter and more formal," "lead with the benefit" — rather than starting over. Refining in steps gets you further than one perfect prompt.</p>
+  <h3>Give it a way out</h3>
+  <p>Tell the model what to do when it's unsure: "If you don't have enough information, ask me before guessing." This reduces confident-but-wrong answers, especially for factual tasks.</p>
+  <h3>Assign constraints explicitly</h3>
+  <p>"Use no buzzwords," "keep every sentence under 20 words," "only use information from the text I provide" — clear constraints shape output far more reliably than hoping the model infers them.</p>
+  <div class="callout">💡 <strong>The biggest single upgrade:</strong> add an example. If you want output in a certain style, paste one example of that style and say "match this." Showing beats describing almost every time.</div>
+
+  <h2 id="mistakes">Common prompting mistakes</h2>
+  <table>
+    <thead><tr><th>Mistake</th><th>Fix</th></tr></thead>
+    <tbody>
+      <tr><td>Being vague</td><td>Specify the deliverable, length, and audience</td></tr>
+      <tr><td>No context</td><td>Explain the situation and what you're trying to achieve</td></tr>
+      <tr><td>Asking for too much at once</td><td>Break big tasks into steps</td></tr>
+      <tr><td>Not specifying format</td><td>Say "as a table," "5 bullets," "200 words"</td></tr>
+      <tr><td>Accepting the first draft</td><td>Iterate — tell it what to change</td></tr>
+      <tr><td>Trusting facts blindly</td><td>Verify anything important; use a sourced tool for research</td></tr>
+    </tbody>
+  </table>
+  <p>That last point matters: even a perfectly prompted model can state something wrong with confidence. For research where accuracy counts, a source-backed tool like <a class="inline" href="https://www.perplexity.ai" target="_blank" rel="noopener">Perplexity</a> lets you verify (see <a class="inline" href="/perplexity-vs-chatgpt.html">Perplexity vs ChatGPT</a>).</p>
+
+  <h2 id="templates">Three templates you can copy</h2>
+  <p><strong>For writing:</strong> "You are a [role]. Write a [length] [type of content] for [audience] about [topic]. Tone: [tone]. Include [specific elements]. Avoid [what to avoid]."</p>
+  <p><strong>For summarising:</strong> "Summarise the text below for [who]. Give me [format, e.g. 5 bullets] covering [what to focus on]. Keep it [length/style]."</p>
+  <p><strong>For analysis:</strong> "Think step by step. Given [information], help me [goal]. Lay out your reasoning, then give a clear recommendation. If you need more information, ask first."</p>
+  <p>Which model you use matters less than how you prompt it — but quality does vary. If you care most about natural writing and following nuanced instructions, see our <a class="inline" href="/best-ai-writing-tools.html">best AI writing tools guide</a> and <a class="inline" href="/chatgpt-vs-claude.html">ChatGPT vs Claude comparison</a>.</p>
+
+  <h2>The bottom line</h2>
+  <p>Better prompting is the highest-return skill in using AI, and it costs nothing to learn. Tell the model who to be, exactly what you want, the context it needs, the format of the answer, and an example of "good." Then iterate. Do that, and the same tools that frustrate most people will quietly become some of the most useful in your day.</p>
+
+  <h2 id="faq">Frequently asked questions</h2>
+  <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What makes a good AI prompt?</div><div class="faq-a">A clear role, a specific task, relevant context, a defined output format, and ideally an example of what you want. The more guessing you remove, the better the result.</div></div>
+  <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Do longer prompts always work better?</div><div class="faq-a">Not longer for its own sake — more <em>specific</em>. A focused three-sentence prompt beats a rambling paragraph. Add detail that removes ambiguity, not filler.</div></div>
+  <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Is prompt engineering still a useful skill in 2026?</div><div class="faq-a">Yes. Models are smarter, but they still only know what you tell them. Clear prompting consistently produces better results across every tool.</div></div>
+  <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Should I trust everything the AI tells me?</div><div class="faq-a">No. Models can sound confident while being wrong. Verify anything important, and for factual research use a tool that cites its sources.</div></div>
+
+  <div class="readalso">📘 Related: <a href="/best-ai-writing-tools.html">Best AI Writing Tools</a> · <a href="/chatgpt-vs-claude.html">ChatGPT vs Claude</a> · <a href="/ai-for-beginners.html">AI for Beginners</a></div>
+</article>
+
+<footer>
+  <div><a href="/about.html">About</a><a href="/disclosure.html">Affiliate Disclosure</a><a href="/privacy.html">Privacy</a><a href="/contact.html">Contact</a></div>
+  <p style="margin-top:16px;color:#555;">© 2026 ToolPulse. All rights reserved.</p>
+</footer>
+</body>
+</html>
