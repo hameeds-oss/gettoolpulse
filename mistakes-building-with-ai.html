@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>7 Mistakes That Cost Me Hours Building Sites with AI (So They Won't Cost You) — ToolPulse</title>
+<meta name="description" content="The real mistakes a non-technical beginner made building websites with AI — the nameserver trap, pushing untested code, browser cache, fake stats, trusting confident-but-wrong AI, and more. Learn from them, skip the pain.">
+<link rel="canonical" href="https://gettoolpulse.com/mistakes-building-with-ai.html">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  :root{--bg:#0a0a0f;--surface:#13131a;--card:#1a1a24;--border:#2a2a38;--accent:#7c5cfc;--accent2:#00d4aa;--text:#e8e8f0;--muted:#7a7a96;--red:#ff6b6b}
+  body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.7}
+  .disclosure-bar{background:var(--surface);border-bottom:1px solid var(--border);text-align:center;padding:8px 16px;font-size:.78rem;color:var(--muted)}
+  .disclosure-bar a{color:var(--accent);text-decoration:none}
+  nav{display:flex;align-items:center;justify-content:space-between;padding:18px 40px;border-bottom:1px solid var(--border);position:sticky;top:0;background:rgba(10,10,15,.92);backdrop-filter:blur(12px);z-index:100}
+  .logo{font-family:'Space Grotesk',sans-serif;font-size:1.4rem;font-weight:700;color:#fff;text-decoration:none}
+  .logo span{color:var(--accent)}
+  .nav-links{display:flex;gap:28px}
+  .nav-links a{color:var(--muted);text-decoration:none;font-size:.9rem;font-weight:500}
+  .nav-links a:hover{color:var(--text)}
+  article{max-width:760px;margin:0 auto;padding:48px 24px}
+  .breadcrumb{font-size:.8rem;color:var(--muted);margin-bottom:20px}
+  .breadcrumb a{color:var(--accent);text-decoration:none}
+  h1{font-family:'Space Grotesk',sans-serif;font-size:2.2rem;font-weight:700;line-height:1.2;margin-bottom:16px}
+  .byline{display:flex;gap:16px;flex-wrap:wrap;font-size:.85rem;color:var(--muted);margin-bottom:28px;padding-bottom:24px;border-bottom:1px solid var(--border)}
+  .byline strong{color:var(--text)}
+  h2{font-family:'Space Grotesk',sans-serif;font-size:1.4rem;font-weight:600;margin:36px 0 14px;scroll-margin-top:80px;display:flex;gap:12px;align-items:baseline}
+  .mnum{display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;width:32px;height:32px;border-radius:8px;background:var(--red);color:#fff;font-size:.9rem;font-weight:700;font-family:'Space Grotesk',sans-serif}
+  h3{font-family:'Space Grotesk',sans-serif;font-size:1.05rem;font-weight:600;margin:20px 0 8px;color:var(--accent2)}
+  p{margin-bottom:18px;color:#c8c8d8}
+  ul,ol{margin:0 0 18px 22px;color:#c8c8d8}
+  li{margin-bottom:8px}
+  a.inline{color:var(--accent);text-decoration:none}
+  .tldr{background:linear-gradient(135deg,#1a1a24,#1e1830);border:1px solid var(--accent);border-radius:14px;padding:24px;margin-bottom:32px}
+  .tldr h3{margin:0 0 10px;font-family:'Space Grotesk',sans-serif;font-size:1rem;color:var(--text)}
+  .tldr p{margin:0;color:#d8d8e8;font-size:.95rem}
+  .toc{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:20px 24px;margin-bottom:32px}
+  .toc h4{font-family:'Space Grotesk',sans-serif;font-size:.95rem;margin-bottom:10px}
+  .toc ol{margin:0 0 0 20px}
+  .toc li{margin-bottom:6px}
+  .toc a{color:var(--accent);text-decoration:none;font-size:.875rem}
+  .fix{background:var(--card);border-left:3px solid var(--accent2);padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0;font-size:.92rem}
+  .fix strong{color:var(--accent2)}
+  .author{display:flex;gap:16px;align-items:flex-start;background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:20px;margin:36px 0 0}
+  .author-avatar{flex-shrink:0;width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center;font-family:'Space Grotesk',sans-serif;font-weight:700;color:#fff;font-size:1.2rem}
+  .author-info h4{font-family:'Space Grotesk',sans-serif;font-size:.95rem;margin-bottom:4px}
+  .author-info p{font-size:.85rem;color:var(--muted);margin:0}
+  .faq-item{border:1px solid var(--border);border-radius:12px;margin-bottom:12px;overflow:hidden}
+  .faq-q{padding:16px 20px;font-weight:600;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:.95rem}
+  .faq-q::after{content:'+';color:var(--accent);font-size:1.3rem}
+  .faq-item.open .faq-q::after{content:'\2212'}
+  .faq-a{padding:0 20px;max-height:0;overflow:hidden;transition:all .3s;color:var(--muted);font-size:.9rem}
+  .faq-item.open .faq-a{padding:0 20px 18px;max-height:400px}
+  .readalso{background:var(--surface);border-left:3px solid var(--accent);padding:16px 18px;border-radius:0 8px 8px 0;margin:28px 0;font-size:.9rem}
+  .readalso a{color:var(--accent);text-decoration:none;font-weight:600}
+  footer{border-top:1px solid var(--border);padding:32px 40px;color:var(--muted);font-size:.8rem;text-align:center;margin-top:40px}
+  footer a{color:var(--muted);text-decoration:none;margin:0 10px}
+  @media(max-width:768px){nav{padding:16px 20px}.nav-links{display:none}article{padding:32px 20px}h1{font-size:1.7rem}}
+</style>
+</head>
+<body>
+<div class="disclosure-bar">Some links are affiliate links — we may earn a commission at no cost to you. It never changes our picks. <a href="/disclosure.html">Disclosure</a></div>
+<nav>
+  <a href="/" class="logo">Tool<span>Pulse</span></a>
+  <div class="nav-links"><a href="/#tools">Directory</a><a href="/#guides-section">Guides</a><a href="/about.html">About</a><a href="/contact.html">Contact</a></div>
+</nav>
+
+<article>
+  <div class="breadcrumb"><a href="/">Home</a> › <a href="/#guides-section">Guides</a> › Mistakes Building with AI</div>
+  <h1>7 Mistakes That Cost Me Hours Building Sites with AI (So They Won't Cost You)</h1>
+  <div class="byline"><span>By <strong>Shawn Hamilton</strong></span><span>Updated June 2026</span><span>⏱ 12 min read</span></div>
+
+  <div class="tldr">
+    <h3>The short version</h3>
+    <p>Across building several live sites and an app as a non-technical beginner, I made the same kinds of mistakes everyone does — and each one cost me real hours. Here are the seven biggest, exactly what went wrong, and the simple fix for each. Read this and skip the pain I didn't.</p>
+  </div>
+
+  <div class="toc">
+    <h4>The seven mistakes</h4>
+    <ol>
+      <li><a href="#m1">Pointing at the wrong nameservers</a></li>
+      <li><a href="#m2">Pushing code I hadn't tested</a></li>
+      <li><a href="#m3">Trusting browser cache (seeing old versions)</a></li>
+      <li><a href="#m4">Believing the AI when it was confidently wrong</a></li>
+      <li><a href="#m5">Putting fake numbers on the site</a></li>
+      <li><a href="#m6">Exposing secrets that should stay hidden</a></li>
+      <li><a href="#m7">Panicking instead of waiting</a></li>
+    </ol>
+  </div>
+
+  <p>I'm not a developer. Over a few weeks I built and launched several websites and a mobile app using AI tools as my guide. The building was the fun part. The <em>mistakes</em> were where I actually learned — and most of them cost me hours I'll never get back. So here they are, honestly, so they cost you minutes instead. Every one of these genuinely happened to me.</p>
+
+  <h2 id="m1"><span class="mnum">1</span> Pointing at the wrong nameservers</h2>
+  <p>This is the one that nearly broke me. On one launch, I carefully entered every DNS record correctly — and the site still showed a "parking page" for hours. At one point it even displayed a message suggesting the domain had <em>expired</em>, which sent me into a small panic. I'd just paid for it.</p>
+  <p>The domain hadn't expired at all. The problem was a layer above the records: my domain's <strong>nameservers</strong> were pointing at the registrar's <em>parking</em> service instead of its real DNS service. So all my perfectly-entered records were sitting in a directory that nothing was consulting. They were being completely ignored.</p>
+  <div class="fix"><strong>The fix:</strong> If your DNS records are correct but the site won't appear, check your nameservers <em>before</em> touching anything else. They must point at the directory your records actually live in. I switched them to the proper DNS nameservers and the site appeared within minutes. (More on this in my <a class="inline" href="/domains-dns-hosting-explained-for-beginners.html">domains &amp; DNS guide</a>.)</div>
+
+  <h2 id="m2"><span class="mnum">2</span> Pushing code I hadn't tested</h2>
+  <p>On my word-game project, I got excited, made changes, and pushed them straight to the live site without checking them first. The deploy failed. So I tweaked and pushed again. It failed again. <strong>Four times in a row.</strong> Each failure cost time and a little more confidence, and the cause was always the same: I was publishing changes I hadn't actually run myself first. One of them referenced a file I'd forgotten to include.</p>
+  <div class="fix"><strong>The fix:</strong> Always test your changes <em>before</em> you publish them. For simple sites, open the file and click around. For anything with a build step, run that build locally and confirm it passes first. "I'm sure it's fine" is how you get four failed deploys in a row. A deploy should never fail twice for the same reason.</div>
+
+  <h2 id="m3"><span class="mnum">3</span> Trusting the browser cache (and seeing ghosts)</h2>
+  <p>This one made me feel like I was losing my mind. I'd deploy a fix, the platform would confirm it was live, I'd reload the page — and the <em>old</em> behaviour would still be there. I'd assume my fix hadn't worked and start "fixing" something that was already fixed, making things worse.</p>
+  <p>The culprit was <strong>browser cache</strong>: my browser was showing me a saved older copy of the page instead of fetching the new one. The fix was live; I just couldn't see it.</p>
+  <div class="fix"><strong>The fix:</strong> After any deploy, do a "hard refresh" (Ctrl+Shift+R on Windows) or open the page in a private/incognito window. That forces your browser to fetch the genuinely current version. Before you conclude a fix didn't work, rule out cache first — it fooled me repeatedly.</div>
+
+  <h2 id="m4"><span class="mnum">4</span> Believing the AI when it was confidently wrong</h2>
+  <p>I love AI tools — they made all of this possible. But I learned the hard way that they can be <strong>confidently, completely wrong</strong>. The worst saga was getting my word game to accept only real words. The AI's solutions sounded authoritative each time, yet one approach accepted obvious gibberish, another rejected perfectly real words, and it took round after round to get right. A separate tool once kept inserting the wrong year into dates because it was guessing rather than checking.</p>
+  <p>The pattern: the AI's <em>confidence</em> had no relationship to its <em>correctness</em>. A wrong answer was delivered just as assuredly as a right one.</p>
+  <div class="fix"><strong>The fix:</strong> Treat AI output as a strong first draft, never as gospel. Verify anything important by testing it yourself or checking a reliable source. When facts matter, use a tool that cites its sources (see <a class="inline" href="/perplexity-vs-chatgpt.html">Perplexity vs ChatGPT</a>). The AI is a brilliant assistant, not an infallible authority — keep your own judgment switched on.</div>
+
+  <h2 id="m5"><span class="mnum">5</span> Putting fake numbers on the site</h2>
+  <p>When my sites were brand new, the design templates came with impressive-looking placeholder stats — "thousands of users," big visitor counts. On more than one site I left them in at first, thinking they made me look established. That was a mistake on two fronts: it's dishonest, and ad networks and search engines actively dislike sites making claims that obviously aren't true. Visitors can sense it too.</p>
+  <div class="fix"><strong>The fix:</strong> Never publish numbers that aren't real. Strip out placeholder stats before you go live. Honest framing ("independently tested," "hand-picked") builds more trust than invented metrics — and keeps you out of trouble when you later apply for advertising programs that review your site.</div>
+
+  <h2 id="m6"><span class="mnum">6</span> Nearly exposing secrets that should stay hidden</h2>
+  <p>Some of my projects needed secret keys — credentials that let my site talk to a paid service. The dangerous beginner instinct is to drop those keys straight into the website's code, where anyone viewing the page could find them. On the projects that needed them, I learned to keep keys <strong>on the server side only</strong>, hidden from the browser entirely, so visitors never see them.</p>
+  <div class="fix"><strong>The fix:</strong> Never put secret keys, passwords, or tokens into anything a visitor's browser can read. Keep them server-side, or in the secure "environment variables" your host provides. And keep secrets out of any code you share publicly — it's easy to leak one without realising. If you ever do expose one, treat it as compromised and replace it immediately.</div>
+
+  <h2 id="m7"><span class="mnum">7</span> Panicking instead of waiting</h2>
+  <p>My most <em>expensive</em> mistake wasn't technical — it was emotional. Several times, something looked broken when it was actually just slow. A new domain not showing up (DNS still spreading worldwide). A change not appearing (cache). My instinct was to assume disaster and start frantically changing things — which sometimes broke what was quietly working fine.</p>
+  <p>The irony: one time my gut told me something <em>was</em> genuinely wrong (a setup taking far too long), and I was right — that was the nameserver issue. The skill is telling the two apart, and you only get there by slowing down.</p>
+  <div class="fix"><strong>The fix:</strong> When something looks broken, pause before you "fix" it. Ask: could this just be propagation or cache? Verify from the outside (a DNS-checker site, an incognito window, your phone on mobile data) before changing anything. Most "it's broken!" moments are really "it's not finished updating yet." Calm and methodical beats fast and frantic every single time.</p></div>
+
+  <h2>The bottom line</h2>
+  <p>None of these mistakes meant I'd failed — they're the actual curriculum of learning to build things. But every one cost me time you don't have to spend. If you remember just three: check your nameservers when DNS misbehaves, never publish untested changes, and don't trust the AI (or your own panic) without verifying. Do that, and you'll skip most of the hours I lost. Breaking things is part of building. Breaking them the <em>same</em> way I did is optional.</p>
+
+  <h2 id="faq">Frequently asked questions</h2>
+  <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Is it normal to make this many mistakes building a website?</div><div class="faq-a">Completely. Breaking and fixing things is how you learn — even experienced developers hit these. The goal isn't zero mistakes; it's not repeating the avoidable ones.</div></div>
+  <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Can I really build a site with AI if I'm not technical?</div><div class="faq-a">Yes — I did, several times, with no background. The mistakes above are the main friction points, and now you know them in advance.</div></div>
+  <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What's the most important lesson here?</div><div class="faq-a">Don't panic. Most "broken" moments are propagation or cache, not real failures. Slow down, verify from the outside, and change things only once you understand what's actually wrong.</div></div>
+  <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Should I stop trusting AI tools after the wrong answers?</div><div class="faq-a">No — they're genuinely powerful and made all my projects possible. Just verify important outputs rather than taking them on faith. Confidence isn't correctness.</div></div>
+
+  <div class="readalso">📘 In this series: <a href="/how-i-built-7-web-projects-with-ai.html">How I Built 7 Web Projects with AI</a> · <a href="/domains-dns-hosting-explained-for-beginners.html">Domains, DNS &amp; Hosting Explained</a></div>
+
+  <div class="author">
+    <div class="author-avatar">SH</div>
+    <div class="author-info">
+      <h4>Shawn Hamilton</h4>
+      <p>Shawn is a non-technical builder who taught himself to ship websites and apps using AI tools — launching several live projects, from a word game to a finance portal, in just a few weeks. He writes about what actually works (and what broke) for complete beginners.</p>
+    </div>
+  </div>
+</article>
+
+<footer>
+  <div><a href="/about.html">About</a><a href="/disclosure.html">Affiliate Disclosure</a><a href="/privacy.html">Privacy</a><a href="/contact.html">Contact</a></div>
+  <p style="margin-top:16px;color:#555;">© 2026 ToolPulse. All rights reserved.</p>
+</footer>
+</body>
+</html>

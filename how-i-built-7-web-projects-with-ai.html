@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>I Knew Nothing About Code. I Built 7 Live Web Projects in 3 Weeks with AI. — ToolPulse</title>
+<meta name="description" content="A non-technical beginner's honest account of building seven live websites and apps in three weeks using AI tools — the mindset, the simple mental model, and what it really takes.">
+<link rel="canonical" href="https://gettoolpulse.com/how-i-built-7-web-projects-with-ai.html">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  :root{--bg:#0a0a0f;--surface:#13131a;--card:#1a1a24;--border:#2a2a38;--accent:#7c5cfc;--accent2:#00d4aa;--text:#e8e8f0;--muted:#7a7a96}
+  body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.7}
+  .disclosure-bar{background:var(--surface);border-bottom:1px solid var(--border);text-align:center;padding:8px 16px;font-size:.78rem;color:var(--muted)}
+  .disclosure-bar a{color:var(--accent);text-decoration:none}
+  nav{display:flex;align-items:center;justify-content:space-between;padding:18px 40px;border-bottom:1px solid var(--border);position:sticky;top:0;background:rgba(10,10,15,.92);backdrop-filter:blur(12px);z-index:100}
+  .logo{font-family:'Space Grotesk',sans-serif;font-size:1.4rem;font-weight:700;color:#fff;text-decoration:none}
+  .logo span{color:var(--accent)}
+  .nav-links{display:flex;gap:28px}
+  .nav-links a{color:var(--muted);text-decoration:none;font-size:.9rem;font-weight:500}
+  .nav-links a:hover{color:var(--text)}
+  article{max-width:760px;margin:0 auto;padding:48px 24px}
+  .breadcrumb{font-size:.8rem;color:var(--muted);margin-bottom:20px}
+  .breadcrumb a{color:var(--accent);text-decoration:none}
+  h1{font-family:'Space Grotesk',sans-serif;font-size:2.2rem;font-weight:700;line-height:1.2;margin-bottom:16px}
+  .byline{display:flex;gap:16px;flex-wrap:wrap;font-size:.85rem;color:var(--muted);margin-bottom:28px;padding-bottom:24px;border-bottom:1px solid var(--border)}
+  .byline strong{color:var(--text)}
+  h2{font-family:'Space Grotesk',sans-serif;font-size:1.5rem;font-weight:600;margin:38px 0 14px;scroll-margin-top:80px}
+  h3{font-family:'Space Grotesk',sans-serif;font-size:1.15rem;font-weight:600;margin:24px 0 8px}
+  p{margin-bottom:18px;color:#c8c8d8}
+  ul,ol{margin:0 0 18px 22px;color:#c8c8d8}
+  li{margin-bottom:8px}
+  a.inline{color:var(--accent);text-decoration:none}
+  .tldr{background:linear-gradient(135deg,#1a1a24,#1e1830);border:1px solid var(--accent);border-radius:14px;padding:24px;margin-bottom:32px}
+  .tldr h3{margin:0 0 10px;font-family:'Space Grotesk',sans-serif;font-size:1rem}
+  .tldr p{margin:0;color:#d8d8e8;font-size:.95rem}
+  .toc{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:20px 24px;margin-bottom:32px}
+  .toc h4{font-family:'Space Grotesk',sans-serif;font-size:.95rem;margin-bottom:10px}
+  .toc ul{list-style:none;margin:0;columns:2;column-gap:24px}
+  .toc li{margin-bottom:6px}
+  .toc a{color:var(--accent);text-decoration:none;font-size:.875rem}
+  .callout{background:var(--card);border-left:3px solid var(--accent2);padding:16px 18px;border-radius:0 8px 8px 0;margin:24px 0;font-size:.92rem}
+  .pullquote{font-family:'Space Grotesk',sans-serif;font-size:1.2rem;line-height:1.5;color:#fff;border-left:3px solid var(--accent);padding:8px 0 8px 20px;margin:28px 0}
+  .faq-item{border:1px solid var(--border);border-radius:12px;margin-bottom:12px;overflow:hidden}
+  .faq-q{padding:16px 20px;font-weight:600;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:.95rem}
+  .faq-q::after{content:'+';color:var(--accent);font-size:1.3rem}
+  .faq-item.open .faq-q::after{content:'\2212'}
+  .faq-a{padding:0 20px;max-height:0;overflow:hidden;transition:all .3s;color:var(--muted);font-size:.9rem}
+  .faq-item.open .faq-a{padding:0 20px 18px;max-height:400px}
+  .author{display:flex;gap:16px;align-items:flex-start;background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:20px;margin:36px 0 0}
+  .author-avatar{flex-shrink:0;width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center;font-family:'Space Grotesk',sans-serif;font-weight:700;color:#fff;font-size:1.2rem}
+  .author-info h4{font-family:'Space Grotesk',sans-serif;font-size:.95rem;margin-bottom:4px}
+  .author-info p{font-size:.85rem;color:var(--muted);margin:0}
+  .readalso{background:var(--surface);border-left:3px solid var(--accent);padding:16px 18px;border-radius:0 8px 8px 0;margin:28px 0;font-size:.9rem}
+  .readalso a{color:var(--accent);text-decoration:none;font-weight:600}
+  footer{border-top:1px solid var(--border);padding:32px 40px;color:var(--muted);font-size:.8rem;text-align:center;margin-top:40px}
+  footer a{color:var(--muted);text-decoration:none;margin:0 10px}
+  @media(max-width:768px){nav{padding:16px 20px}.nav-links{display:none}article{padding:32px 20px}h1{font-size:1.7rem}.toc ul{columns:1}}
+</style>
+</head>
+<body>
+<div class="disclosure-bar">Some links are affiliate links — we may earn a commission at no cost to you. It never changes our picks. <a href="/disclosure.html">Disclosure</a></div>
+<nav>
+  <a href="/" class="logo">Tool<span>Pulse</span></a>
+  <div class="nav-links"><a href="/#tools">Directory</a><a href="/#guides-section">Guides</a><a href="/about.html">About</a><a href="/contact.html">Contact</a></div>
+</nav>
+
+<article>
+  <div class="breadcrumb"><a href="/">Home</a> › <a href="/#guides-section">Guides</a> › Building with AI</div>
+  <h1>I Knew Nothing About Code. I Built 7 Live Web Projects in 3 Weeks with AI. Here's How.</h1>
+  <div class="byline"><span>By <strong>Shawn Hamilton</strong></span><span>Updated June 2026</span><span>⏱ 11 min read</span></div>
+
+  <div class="tldr">
+    <h3>The short version</h3>
+    <p>I'm not a developer. Three weeks ago I couldn't have told you the difference between a domain and a host. Then I used AI tools as a patient guide and built seven real, live projects — an events site, a recipe tool, a word game, a finance portal, and more. This is the honest story of how, the mindset that made it work, and the one simple mental model that made everything click.</p>
+  </div>
+
+  <div class="toc">
+    <h4>What's inside</h4>
+    <ul>
+      <li><a href="#start">Where I started: zero</a></li>
+      <li><a href="#model">The mental model that unlocked it</a></li>
+      <li><a href="#role">What AI actually does for you</a></li>
+      <li><a href="#projects">The seven projects</a></li>
+      <li><a href="#truths">What nobody tells beginners</a></li>
+      <li><a href="#start-today">How you'd start today</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+  </div>
+
+  <p>Let me be honest about my starting point, because it matters. I am not a programmer. I had never written a line of code I understood, never deployed a website, never touched a command line without fear. If you'd shown me a screen full of DNS settings three weeks ago, I'd have closed the laptop.</p>
+  <p>And yet, over about three weeks, I built and launched seven real projects on the open internet — sites and an app that actually work, that real people can use. I'm telling you this not to brag (most of it was clumsy, and I broke things constantly), but because if you're a non-technical person wondering whether AI tools have genuinely lowered the barrier, the answer is yes — with caveats I'll be straight about. This is the guide I wish someone had handed me on day one.</p>
+
+  <h2 id="start">Where I started: completely lost</h2>
+  <p>My first project was the most ambitious and, in hindsight, the hardest possible thing to start with: a local events platform with a website, a backend database, automated email, and even a bot that could read event posters from screenshots. It took days, I got tangled in moving parts I didn't understand, and I made every mistake going. But it taught me something crucial — the AI wasn't going to do it <em>for</em> me while I watched. It was going to do it <em>with</em> me, one step at a time, if I was willing to be the hands and ask a lot of questions.</p>
+  <p>By my last couple of projects — a finance calculator portal and a mobile app — I'd found a calm, repeatable rhythm. That shift, from drowning to a system, is the real story. It's available to anyone willing to stay curious and not panic when something breaks.</p>
+
+  <h2 id="model">The mental model that unlocked everything</h2>
+  <p>The single biggest thing that helped me was a simple analogy for how a website actually reaches people. Before this clicked, every technical step felt like magic words I was copying blindly. After it clicked, the steps made sense. Here it is:</p>
+  <p><strong>Think of putting a website online like opening a shop.</strong></p>
+  <ul>
+    <li><strong>The domain</strong> (like <em>yoursite.com</em>) is your shop's <strong>street address</strong>. It's what you tell people so they can find you. You rent it for a year at a time from a registrar.</li>
+    <li><strong>The host</strong> is the actual <strong>building</strong> where your shop's stuff lives — the files that make up your site. Someone has to physically store them on a computer that's always on.</li>
+    <li><strong>DNS</strong> is the <strong>post office / directory</strong> that connects the address to the building. When someone types your address, DNS is what quietly points them to the right building.</li>
+    <li><strong>Deployment</strong> is simply <strong>moving your stuff into the building</strong> and putting it on the shelves so customers can see it.</li>
+  </ul>
+  <p>That's it. Almost every confusing step I hit was really just one of those four things: registering the address, renting the building, telling the directory how to connect them, or moving the goods in. Once I had that map in my head, I stopped feeling lost. If you only take one thing from this article, take that analogy — there's a fuller walkthrough in my <a class="inline" href="/domains-dns-hosting-explained-for-beginners.html">beginner's guide to domains, DNS and hosting</a>.</p>
+
+  <div class="callout">💡 <strong>Why this matters:</strong> Most beginner overwhelm isn't because the concepts are hard — it's because nobody gives you the map first. You're handed steps without the picture they fit into. Get the picture, and the steps become obvious.</div>
+
+  <h2 id="role">What AI actually does for you (and what it doesn't)</h2>
+  <p>Here's the honest division of labour I settled into, and it's the key to the whole thing:</p>
+  <p><strong>The AI was my tireless expert.</strong> It wrote the code, explained concepts in plain English as many times as I needed, drafted the content, and — crucially — talked me through fixing things when they broke. I could ask "explain that like I'm five" endlessly and never get an impatient sigh.</p>
+  <p><strong>I was the hands, the judgment, and the persistence.</strong> I clicked the buttons, ran the steps, made the decisions, and kept going when things failed. The AI couldn't log into my accounts, couldn't see my screen unless I showed it, and couldn't know what I hadn't told it.</p>
+  <p class="pullquote">AI didn't replace the work. It removed the gatekeeping — the years of training that used to stand between an idea and a live website.</p>
+  <p>That reframing is everything. I stopped thinking "the AI will build my site" and started thinking "the AI is the most patient teacher alive, and I'm the apprentice doing the actual building." Apprentices make mistakes. That's the job. For getting the most out of that teacher, see my notes on <a class="inline" href="/how-to-write-ai-prompts.html">writing better prompts</a> — clear instructions were half the battle.</p>
+
+  <h2 id="projects">The seven projects (and what each taught me)</h2>
+  <p>Without naming the live sites, here's the range, because the variety is the point — these are very different kinds of things, and the same approach built all of them:</p>
+  <ul>
+    <li><strong>A local events platform</strong> — my baptism by fire. Taught me that ambitious-first is hard, but you learn fastest in the deep end.</li>
+    <li><strong>A recipe-scaling tool</strong> — taught me about handling user uploads and keeping secret keys hidden safely on the server, never in the browser.</li>
+    <li><strong>A daily word game</strong> — taught me the most painful lessons about testing before publishing, and that "it works on my screen" isn't the same as "it works."</li>
+    <li><strong>A mental-maths learning site</strong> — taught me about user accounts and that some content genuinely needs a human expert, not just AI.</li>
+    <li><strong>An AI-tools guide</strong> (this very site) — taught me about content, SEO, and being honest rather than hyping.</li>
+    <li><strong>A finance calculator portal</strong> — by now I had a system: test the logic first, then build the interface. Taught me that calm and repeatable beats heroic and chaotic.</li>
+    <li><strong>A mobile app</strong> — taught me that the same problem-solving approach stretches well beyond websites.</li>
+  </ul>
+  <p>Seven different problems, one mindset. None of them required me to become a "real developer." They required me to be willing to learn, willing to break things, and willing to ask the AI "why did that happen?" a hundred times.</p>
+
+  <h2 id="truths">What nobody tells beginners</h2>
+  <p>A few honest truths that would have saved me a lot of stress:</p>
+  <h3>Things will break, constantly — and that's normal</h3>
+  <p>I had deploys fail, sites show blank pages, a domain that looked "expired" when it wasn't, and features that worked one minute and broke the next. None of it meant I'd failed. Breaking and fixing <em>is</em> the process. The skill isn't avoiding problems; it's not panicking when they appear.</p>
+  <h3>The AI can be confidently wrong</h3>
+  <p>More than once, the AI gave me an answer that sounded completely certain and was completely wrong. It's a tool, not an oracle. I learned to verify anything important and to treat its confidence as a suggestion, not proof.</p>
+  <h3>Patience beats brilliance</h3>
+  <p>I'm not smart in a technical way. What got me through was refusing to quit on a problem and being willing to go one careful step at a time. That's a temperament, not a talent — and anyone can choose it.</p>
+  <h3>Honesty is a feature, not a weakness</h3>
+  <p>On a couple of sites I was tempted to inflate numbers to look established. I learned that real platforms penalise that, and visitors smell it. Being genuinely honest about what something is turned out to be both the right call and the smarter one.</p>
+
+  <h2 id="start-today">If you wanted to start today</h2>
+  <p>Here's the simplest possible on-ramp, based on what actually worked for me:</p>
+  <ol>
+    <li><strong>Pick one small, real idea</strong> — something you'd genuinely use. Motivation matters more than ambition.</li>
+    <li><strong>Open a free AI assistant</strong> and tell it exactly what you want to build and that you're a complete beginner. (New to that? Start with my <a class="inline" href="/ai-for-beginners.html">AI for beginners guide</a>.)</li>
+    <li><strong>Ask it to teach as it goes</strong> — "explain each step, assume I know nothing." Go one step at a time.</li>
+    <li><strong>Expect to break things</strong>, and ask "why did that happen and how do I fix it?" every time you do.</li>
+    <li><strong>Learn the four-part map</strong> (address, building, directory, moving in) so the deployment steps make sense.</li>
+  </ol>
+  <p>That's genuinely how I went from zero to seven live projects. Not talent — a patient teacher, a clear mental model, and a refusal to give up when the screen turned red.</p>
+
+  <h2>The bottom line</h2>
+  <p>Three weeks ago, "deploying a website" sounded like something only real engineers did. Now I've done it seven times. AI didn't make me a developer — it made the gate that used to keep people like me out swing open. If you've been on the outside of building things because you "don't know how to code," I'd gently suggest that barrier is lower than it's ever been. You still have to do the work, still have to be patient, still have to push through the broken bits. But the door is open. I walked through it knowing nothing. So can you.</p>
+
+  <h2 id="faq">Frequently asked questions</h2>
+  <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Do I really need zero coding knowledge to start?</div><div class="faq-a">You can start with none — I did. You'll pick up understanding as you go by asking the AI to explain each step. You don't need to become a programmer; you need to be willing to learn and to keep going when things break.</div></div>
+  <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">How much did it cost to build these projects?</div><div class="faq-a">Less than most people expect. The main costs were domain names (roughly the price of a coffee or two per year each) and a small amount of AI usage. Hosting for simple sites can be free to start.</div></div>
+  <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Which AI tool did you use?</div><div class="faq-a">A general AI assistant did most of the heavy lifting — explaining, writing code, and troubleshooting. The specific tool matters less than how clearly you communicate with it. See our guides on the best AI tools to pick one.</div></div>
+  <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What's the hardest part for a beginner?</div><div class="faq-a">Honestly, it's emotional, not technical — not panicking when something breaks. The concepts are learnable. Staying calm and methodical when the screen shows an error is the real skill.</div></div>
+
+  <div class="readalso">📘 Next in this series: <a href="/domains-dns-hosting-explained-for-beginners.html">Domains, DNS &amp; Hosting Explained for Beginners</a> · <a href="/mistakes-building-with-ai.html">7 Mistakes That Cost Me Hours Building with AI</a></div>
+
+  <div class="author">
+    <div class="author-avatar">SH</div>
+    <div class="author-info">
+      <h4>Shawn Hamilton</h4>
+      <p>Shawn is a non-technical builder who taught himself to ship websites and apps using AI tools — launching several live projects, from a word game to a finance portal, in just a few weeks. He writes about what actually works (and what broke) for complete beginners.</p>
+    </div>
+  </div>
+</article>
+
+<footer>
+  <div><a href="/about.html">About</a><a href="/disclosure.html">Affiliate Disclosure</a><a href="/privacy.html">Privacy</a><a href="/contact.html">Contact</a></div>
+  <p style="margin-top:16px;color:#555;">© 2026 ToolPulse. All rights reserved.</p>
+</footer>
+</body>
+</html>

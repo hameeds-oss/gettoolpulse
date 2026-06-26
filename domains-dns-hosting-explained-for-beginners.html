@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Domains, DNS, Hosting & Deployment: The Beginner's Map I Wish I'd Had — ToolPulse</title>
+<meta name="description" content="A plain-English guide to domains, DNS, hosting and deployment for complete beginners — what each one actually is, how they connect, and why your new site can be live for the world but not for you.">
+<link rel="canonical" href="https://gettoolpulse.com/domains-dns-hosting-explained-for-beginners.html">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  :root{--bg:#0a0a0f;--surface:#13131a;--card:#1a1a24;--border:#2a2a38;--accent:#7c5cfc;--accent2:#00d4aa;--text:#e8e8f0;--muted:#7a7a96}
+  body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.7}
+  .disclosure-bar{background:var(--surface);border-bottom:1px solid var(--border);text-align:center;padding:8px 16px;font-size:.78rem;color:var(--muted)}
+  .disclosure-bar a{color:var(--accent);text-decoration:none}
+  nav{display:flex;align-items:center;justify-content:space-between;padding:18px 40px;border-bottom:1px solid var(--border);position:sticky;top:0;background:rgba(10,10,15,.92);backdrop-filter:blur(12px);z-index:100}
+  .logo{font-family:'Space Grotesk',sans-serif;font-size:1.4rem;font-weight:700;color:#fff;text-decoration:none}
+  .logo span{color:var(--accent)}
+  .nav-links{display:flex;gap:28px}
+  .nav-links a{color:var(--muted);text-decoration:none;font-size:.9rem;font-weight:500}
+  .nav-links a:hover{color:var(--text)}
+  article{max-width:760px;margin:0 auto;padding:48px 24px}
+  .breadcrumb{font-size:.8rem;color:var(--muted);margin-bottom:20px}
+  .breadcrumb a{color:var(--accent);text-decoration:none}
+  h1{font-family:'Space Grotesk',sans-serif;font-size:2.2rem;font-weight:700;line-height:1.2;margin-bottom:16px}
+  .byline{display:flex;gap:16px;flex-wrap:wrap;font-size:.85rem;color:var(--muted);margin-bottom:28px;padding-bottom:24px;border-bottom:1px solid var(--border)}
+  .byline strong{color:var(--text)}
+  h2{font-family:'Space Grotesk',sans-serif;font-size:1.5rem;font-weight:600;margin:38px 0 14px;scroll-margin-top:80px}
+  h3{font-family:'Space Grotesk',sans-serif;font-size:1.15rem;font-weight:600;margin:24px 0 8px}
+  p{margin-bottom:18px;color:#c8c8d8}
+  ul,ol{margin:0 0 18px 22px;color:#c8c8d8}
+  li{margin-bottom:8px}
+  a.inline{color:var(--accent);text-decoration:none}
+  .tldr{background:linear-gradient(135deg,#1a1a24,#1e1830);border:1px solid var(--accent);border-radius:14px;padding:24px;margin-bottom:32px}
+  .tldr h3{margin:0 0 10px;font-family:'Space Grotesk',sans-serif;font-size:1rem}
+  .tldr p{margin:0;color:#d8d8e8;font-size:.95rem}
+  .toc{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:20px 24px;margin-bottom:32px}
+  .toc h4{font-family:'Space Grotesk',sans-serif;font-size:.95rem;margin-bottom:10px}
+  .toc ul{list-style:none;margin:0;columns:2;column-gap:24px}
+  .toc li{margin-bottom:6px}
+  .toc a{color:var(--accent);text-decoration:none;font-size:.875rem}
+  table{width:100%;border-collapse:collapse;margin:24px 0;font-size:.875rem}
+  th,td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--border)}
+  th{font-family:'Space Grotesk',sans-serif;background:var(--surface)}
+  td{color:#c8c8d8}tr td:first-child{font-weight:600;color:var(--text)}
+  .callout{background:var(--card);border-left:3px solid var(--accent2);padding:16px 18px;border-radius:0 8px 8px 0;margin:24px 0;font-size:.92rem}
+  .analogy{background:linear-gradient(135deg,#1a1a24,#161a26);border:1px solid var(--border);border-radius:12px;padding:20px 22px;margin:24px 0}
+  .analogy h4{font-family:'Space Grotesk',sans-serif;font-size:.95rem;margin-bottom:8px;color:var(--accent2)}
+  .analogy p{margin:0;font-size:.92rem}
+  .faq-item{border:1px solid var(--border);border-radius:12px;margin-bottom:12px;overflow:hidden}
+  .faq-q{padding:16px 20px;font-weight:600;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:.95rem}
+  .faq-q::after{content:'+';color:var(--accent);font-size:1.3rem}
+  .faq-item.open .faq-q::after{content:'\2212'}
+  .faq-a{padding:0 20px;max-height:0;overflow:hidden;transition:all .3s;color:var(--muted);font-size:.9rem}
+  .faq-item.open .faq-a{padding:0 20px 18px;max-height:420px}
+  .author{display:flex;gap:16px;align-items:flex-start;background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:20px;margin:36px 0 0}
+  .author-avatar{flex-shrink:0;width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center;font-family:'Space Grotesk',sans-serif;font-weight:700;color:#fff;font-size:1.2rem}
+  .author-info h4{font-family:'Space Grotesk',sans-serif;font-size:.95rem;margin-bottom:4px}
+  .author-info p{font-size:.85rem;color:var(--muted);margin:0}
+  .readalso{background:var(--surface);border-left:3px solid var(--accent);padding:16px 18px;border-radius:0 8px 8px 0;margin:28px 0;font-size:.9rem}
+  .readalso a{color:var(--accent);text-decoration:none;font-weight:600}
+  footer{border-top:1px solid var(--border);padding:32px 40px;color:var(--muted);font-size:.8rem;text-align:center;margin-top:40px}
+  footer a{color:var(--muted);text-decoration:none;margin:0 10px}
+  @media(max-width:768px){nav{padding:16px 20px}.nav-links{display:none}article{padding:32px 20px}h1{font-size:1.7rem}.toc ul{columns:1}}
+</style>
+</head>
+<body>
+<div class="disclosure-bar">Some links are affiliate links — we may earn a commission at no cost to you. It never changes our picks. <a href="/disclosure.html">Disclosure</a></div>
+<nav>
+  <a href="/" class="logo">Tool<span>Pulse</span></a>
+  <div class="nav-links"><a href="/#tools">Directory</a><a href="/#guides-section">Guides</a><a href="/about.html">About</a><a href="/contact.html">Contact</a></div>
+</nav>
+
+<article>
+  <div class="breadcrumb"><a href="/">Home</a> › <a href="/#guides-section">Guides</a> › Domains, DNS &amp; Hosting</div>
+  <h1>Domains, DNS, Hosting &amp; Deployment: The Beginner's Map I Wish I'd Had</h1>
+  <div class="byline"><span>By <strong>Shawn Hamilton</strong></span><span>Updated June 2026</span><span>⏱ 12 min read</span></div>
+
+  <div class="tldr">
+    <h3>The short version</h3>
+    <p>Putting a website online involves four things: a <strong>domain</strong> (your address), a <strong>host</strong> (where your files live), <strong>DNS</strong> (the directory that connects the two), and <strong>deployment</strong> (moving your files in). Understand those four and the whole confusing process turns simple. This is the plain-English map I built for myself after launching several sites with zero technical background.</p>
+  </div>
+
+  <div class="toc">
+    <h4>What's inside</h4>
+    <ul>
+      <li><a href="#shop">The shop analogy</a></li>
+      <li><a href="#domain">Domains &amp; registrars</a></li>
+      <li><a href="#host">Hosting</a></li>
+      <li><a href="#dns">DNS (the confusing one)</a></li>
+      <li><a href="#nameservers">Nameservers vs DNS records</a></li>
+      <li><a href="#deploy">Deployment</a></li>
+      <li><a href="#propagation">Why your site isn't showing yet</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+  </div>
+
+  <p>When I started building websites with AI tools, the building part was never what stumped me — the AI handled that. What stumped me was getting a finished site to actually appear at a real web address. That stretch — domains, DNS, hosting, deployment — was a wall of jargon that nearly stopped me cold. Nobody had given me the picture; just steps to copy blindly.</p>
+  <p>So I built the picture myself, the hard way, across several launches. Here it is, in the plain language I wish someone had used with me. No prior knowledge assumed.</p>
+
+  <h2 id="shop">Start with one analogy: opening a shop</h2>
+  <p>Everything makes sense once you map it to opening a physical shop. Hold this in your head and the rest follows:</p>
+  <div class="analogy">
+    <h4>🏪 The whole thing in one picture</h4>
+    <p><strong>Domain</strong> = your shop's street address (what you give people). <strong>Host</strong> = the actual building your goods sit in. <strong>DNS</strong> = the post office directory that connects the address to the building. <strong>Deployment</strong> = moving your goods into the building and onto the shelves.</p>
+  </div>
+  <p>That's the entire model. Every step you'll ever take is one of those four jobs. Let's walk through each.</p>
+
+  <h2 id="domain">Domains and registrars</h2>
+  <p>A <strong>domain</strong> is the human-friendly address people type to reach you — <em>yoursite.com</em>. You don't buy a domain forever; you <strong>rent</strong> it, usually a year at a time, from a <strong>registrar</strong> (the company you pay for it).</p>
+  <p>A few things I learned the practical way:</p>
+  <ul>
+    <li><strong>Good short names are mostly taken.</strong> On several projects my first choices were gone. That's normal — have alternatives ready, and don't grab an awkward misspelling of a taken name.</li>
+    <li><strong>.com still wins</strong> for trust and memorability when you can get it.</li>
+    <li><strong>Turn on auto-renew.</strong> If a domain lapses, you can lose it — and with it, your whole site's address. This is a genuinely costly mistake to make.</li>
+    <li><strong>Decline the upsells</strong> at checkout. You usually don't need the hosting, email, or "SEO tools" they push. Just the domain (privacy protection, if free, is fine to keep).</li>
+  </ul>
+
+  <h2 id="host">Hosting: where your files actually live</h2>
+  <p>Your website is really just a bunch of files. Those files have to sit on a computer that's switched on and connected to the internet 24/7 so anyone can reach them. That's <strong>hosting</strong> — you're renting space in an always-on building.</p>
+  <p>For simple sites, modern hosting platforms are <strong>free to start</strong> and astonishingly easy — you connect a folder of files (often through a service like GitHub) and the platform serves them to the world, handling the security certificate (the padlock / HTTPS) automatically. For sites that need a database or accounts, you reach for slightly more involved options, but the principle is identical: somewhere reliable to keep your files.</p>
+  <div class="callout">💡 <strong>A useful distinction:</strong> the registrar (who you rent the address from) and the host (where your files live) are often <em>different companies</em>. That surprised me at first — and it's exactly why DNS exists, to connect the two.</div>
+
+  <h2 id="dns">DNS: the part that confuses everyone</h2>
+  <p>DNS (Domain Name System) is the piece that tripped me up most, so let me make it stupidly simple. <strong>DNS is the directory that connects your address to your building.</strong> When someone types your domain, their browser asks DNS, "where do I actually find this?" and DNS answers with the location of your host.</p>
+  <p>You set this up by adding <strong>DNS records</strong> — small instructions that say "this address points to that location." The two you'll meet most as a beginner:</p>
+  <table>
+    <thead><tr><th>Record</th><th>What it does (in plain terms)</th></tr></thead>
+    <tbody>
+      <tr><td>A record</td><td>Points your bare domain to a specific location (an IP address — basically the building's GPS coordinates)</td></tr>
+      <tr><td>CNAME record</td><td>Points a part of your domain (like the "www" version) to another address that already knows the way</td></tr>
+    </tbody>
+  </table>
+  <p>Your host tells you exactly which records to add and what values to use. Your job is just to copy those values into your domain's DNS settings, carefully. One wrong character and it won't connect — so copy, don't type from memory.</p>
+
+  <h2 id="nameservers">The trap: nameservers vs DNS records</h2>
+  <p>This is the single most confusing thing I hit, and it cost me hours, so pay attention because it'll save you the same pain. There are <em>two</em> layers here, and getting them mixed up is a classic beginner trap:</p>
+  <ul>
+    <li><strong>Nameservers</strong> decide <em>which</em> directory is in charge of your domain.</li>
+    <li><strong>DNS records</strong> are the actual entries <em>inside</em> that directory.</li>
+  </ul>
+  <p>Here's how it bit me: on one site, I carefully added all the correct DNS records — and the site still showed a "parking page" for hours, even appearing as though the domain had expired (it hadn't). I nearly tore my hair out, because the records were perfect.</p>
+  <p>The cause? My domain's <strong>nameservers</strong> were still pointing at the registrar's <em>parking</em> system, not its real DNS system. So the records I'd lovingly entered were sitting in a directory that nothing was actually consulting. The moment I switched the nameservers to the proper DNS ones, the site appeared within minutes.</p>
+  <p class="tldr" style="font-size:.95rem">🔑 <strong>The lesson:</strong> if you've set your DNS records correctly but your site still won't show, check your <em>nameservers</em>. They have to point at the directory your records actually live in. Correct records in the wrong directory do nothing.</p>
+
+  <h2 id="deploy">Deployment: moving your stuff in</h2>
+  <p>Deployment just means taking your finished files and putting them onto your host so they go live. With modern platforms this is delightfully simple: you push your files (commonly via GitHub), and the host automatically updates your live site within a minute or so. Make a change, push it, and the world sees the new version almost immediately.</p>
+  <p>The thing nobody warns you about: <strong>"it works on my computer" is not the same as "it works."</strong> More than once I pushed something that ran fine locally and broke the live site. Testing before you publish saves real heartache — I write about that and other hard-won lessons in <a class="inline" href="/mistakes-building-with-ai.html">7 mistakes that cost me hours</a>.</p>
+
+  <h2 id="propagation">Why your new site isn't showing (and it's not broken)</h2>
+  <p>Here's a moment that genuinely panicked me, so let me spare you the fear. After setting everything up correctly, I typed my new domain — and got nothing, or an old parking page. I was sure I'd broken it.</p>
+  <p>I hadn't. This is <strong>DNS propagation</strong>. When you change DNS settings, the update has to spread to servers all around the world, and they don't all update at once — it can take anywhere from minutes to a day or two. The strange part: my site was <em>live for most of the world</em> while still invisible to me, because my local internet provider's directory hadn't refreshed yet.</p>
+  <p>Two things that help:</p>
+  <ul>
+    <li><strong>Check from the world's point of view</strong> using a free "DNS checker" site — it shows whether your domain is resolving correctly across different countries. If most show the new location, it <em>is</em> working; your corner just hasn't caught up.</li>
+    <li><strong>See it yourself sooner</strong> by clearing your computer's DNS cache, or temporarily switching your device to a fast public DNS service. Checking from your phone on mobile data (a different network) often works immediately too.</li>
+  </ul>
+  <div class="callout">💡 <strong>The mindset that saved me:</strong> when something takes longer than expected, it's usually propagation or caching — not breakage. Wait, verify from outside, and resist the urge to "fix" something that isn't broken.</div>
+
+  <h2>The bottom line</h2>
+  <p>Domains, DNS, hosting and deployment sound like four intimidating technical topics. They're really just: rent an address, rent a building, tell the directory how to connect them, and move your stuff in. Hold the shop analogy in your head, watch out for the nameserver trap, and don't panic during propagation. Get those, and the part that stops most beginners cold becomes the part you barely think about. It did for me — and I started knowing absolutely none of it.</p>
+
+  <h2 id="faq">Frequently asked questions</h2>
+  <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What's the difference between a domain and hosting?</div><div class="faq-a">The domain is your address (what people type); hosting is the building where your files actually live. They're often bought from different companies, and DNS connects them.</div></div>
+  <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">My DNS records are correct but my site won't load. Why?</div><div class="faq-a">Two common reasons: your nameservers may be pointing at the wrong directory (so your records are being ignored), or DNS is still propagating worldwide. Check your nameservers first, then give propagation time.</div></div>
+  <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">How long does DNS propagation take?</div><div class="faq-a">Anywhere from a few minutes to 24–72 hours, depending on what you changed. A nameserver change usually takes longer than a single record change. It often works for much of the world before it works for you locally.</div></div>
+  <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Do I need to be technical to set this up?</div><div class="faq-a">No. You're mostly copying values your host gives you into your domain's settings. The concepts above are all you really need — I set up several sites with no technical background.</div></div>
+
+  <div class="readalso">📘 In this series: <a href="/how-i-built-7-web-projects-with-ai.html">How I Built 7 Web Projects with AI</a> · <a href="/mistakes-building-with-ai.html">7 Mistakes That Cost Me Hours Building with AI</a></div>
+
+  <div class="author">
+    <div class="author-avatar">SH</div>
+    <div class="author-info">
+      <h4>Shawn Hamilton</h4>
+      <p>Shawn is a non-technical builder who taught himself to ship websites and apps using AI tools — launching several live projects, from a word game to a finance portal, in just a few weeks. He writes about what actually works (and what broke) for complete beginners.</p>
+    </div>
+  </div>
+</article>
+
+<footer>
+  <div><a href="/about.html">About</a><a href="/disclosure.html">Affiliate Disclosure</a><a href="/privacy.html">Privacy</a><a href="/contact.html">Contact</a></div>
+  <p style="margin-top:16px;color:#555;">© 2026 ToolPulse. All rights reserved.</p>
+</footer>
+</body>
+</html>
